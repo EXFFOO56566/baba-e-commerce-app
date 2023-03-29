@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [icon]="config.direction == 'ltr'?'arrow-back': 'arrow-forward'"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{config.language.AboutUs}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <h4 class="ion-no-margin ion-padding">
+    {{config.language.APolicy}}
+  </h4>
+  <ion-label class="ion-padding-horizontal">
+    {{config.language.GlobalText}}</ion-label>
+
+  <ion-item lines="none" (click)="showPrivacy()">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="11">
+          <ion-label>
+            <ion-icon color="primary" name="gift"></ion-icon>
+            <p>
+              {{config.language.PrivacyPolice}}
+            </p>
+          </ion-label>
+        </ion-col>
+        <ion-col class="ion-align-self-center" size="1">
+          <ion-icon class="ion-float-right zoom-icon" color="primary"
+            [name]="config.direction == 'ltr'?'chevron-forward-outline': 'chevron-back-outline'"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+
+  <ion-item lines="none" (click)="showTerm()">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="11">
+          <ion-label>
+            <ion-icon color="primary" name="gift"></ion-icon>
+            <p>
+              {{config.language.TermAndCondition}}
+            </p>
+          </ion-label>
+        </ion-col>
+        <ion-col class="ion-align-self-center" size="1">
+          <ion-icon class="ion-float-right zoom-icon" color="primary"
+            [name]="config.direction == 'ltr'?'chevron-forward-outline': 'chevron-back-outline'"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+</ion-content>

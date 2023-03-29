@@ -1,0 +1,122 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      {{config.language.ECommerce}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)" class="ion-padding">
+  <!-- For Banner Component -->
+  <app-banner> </app-banner>
+
+  <!-- For Segments -->
+  <ion-segment [(ngModel)]="segments">
+    <ion-segment-button class="ion-margin" [value]="config.language.FLashSale">{{config.language.FLashSale}}
+    </ion-segment-button>
+    <ion-segment-button class="ion-margin" value="DailyFeatured">{{config.language.DailyFeatured}} </ion-segment-button>
+    <ion-segment-button class="ion-margin" value="MostLiked">{{config.language.MostLiked}}</ion-segment-button>
+  </ion-segment>
+
+  <!-- For Segments Define -->
+  <div [ngSwitch]="segments">
+    <!-- For First Swipe Slider -->
+    <ion-card *ngSwitchCase="config.language.FLashSale" class="ion-no-margin">
+      <ion-grid class="ion-no-padding">
+        <ion-row>
+          <ion-col size="6" *ngFor="let p of shared.flashSaleFurniture">
+            <app-card [data]="p" [type]="6"></app-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+
+    <!-- For 2nd Swipe Slider -->
+    <ion-card *ngSwitchCase="'DailyFeatured'" class="ion-no-margin">
+      <ion-grid class="ion-no-padding">
+        <ion-row>
+          <ion-col size="6" *ngFor="let p of shared.wishListProducts">
+            <app-card [data]="p" [type]="6"></app-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+
+    <!-- For 3rd Swipe Slider -->
+    <ion-card *ngSwitchCase="'MostLiked'" class="ion-no-margin">
+      <ion-grid class="ion-no-padding">
+        <ion-row>
+          <ion-col size="6" *ngFor="let p of shared.flashSaleFurniture">
+            <app-card [data]="p" [type]="6"></app-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+
+    <!-- For Categories Componet Card -->
+    <ion-card class="ion-no-margin may-like-card">
+      <ion-row>
+        <ion-col size="12">
+          <ion-label class="ion-padding-start">
+            {{config.language.Categories}}
+          </ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+
+  <app-category-styles [changesToCalled]="changesToCalled" [style]='style'></app-category-styles>
+
+  <!-- For Flash Sale Product Componet Card -->
+  <ion-card class="ion-no-margin hot-cat-card">
+    <ion-card-header class="ion-no-padding ion-margin-top">
+      <ion-row>
+        <ion-col size="6">
+          <ion-label style="font-size:15px" class="hot-lbl">
+            {{config.language.OnSale}}
+          </ion-label>
+        </ion-col>
+        <ion-col size="6" class="ion-text-end">
+          <ion-label (click)="showCategory()" class="lbl-more">
+            {{config.language.ViewMore}}
+            <ion-icon color="primary"
+              [name]="config.direction == 'ltr'?'chevron-forward-outline': 'chevron-back-outline'"></ion-icon>
+          </ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+
+    <ion-card-content class="ion-no-padding">
+      <ion-slides [options]="sliderConfig">
+        <ion-slide *ngFor="let p of shared.hotCategory">
+          <app-card [data]="p" [type]="'card-9'"></app-card>
+        </ion-slide>
+      </ion-slides>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- For Recommendation Product Componet Card -->
+  <ion-card class="ion-no-margin may-like-card">
+    <ion-row>
+      <ion-col size="12">
+        <ion-label class="ion-padding-start">
+          {{config.language.YouMayLike}}
+        </ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <app-infinite-grid [type]="'grid'"></app-infinite-grid>
+
+</ion-content>
+
+<ion-fab class="ion-padding-start" vertical="bottom" horizontal="top">
+  <ion-fab-button (click)="appSetting()">
+    <ion-icon name="create-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-fab vertical="bottom" horizontal="end" *ngIf="scrollTopButton">
+  <ion-fab-button color="primary" (click)="scrollToTop()">
+    <ion-icon name="arrow-up"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

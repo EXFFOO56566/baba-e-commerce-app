@@ -1,0 +1,16 @@
+ion-content {
+    ion-card {
+        --background: var(--ion-toolbar-item-background-color);
+    }
+    ion-row {
+        ion-col {
+            ion-label {
+                font-weight: 600;
+                ion-icon {
+                    vertical-align: middle;
+                    zoom: 1.3;
+                }
+            }
+        }
+    }
+}

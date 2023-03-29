@@ -1,0 +1,89 @@
+// For Stepper
+.md-stepper-horizontal {
+    display: table;
+    width: 100%;
+}
+.md-stepper-horizontal .md-step {
+    display: table-cell;
+    position: relative;
+    padding: 20px;
+}
+
+// For Circle
+.md-stepper-horizontal .md-step .md-step-circle {
+    width: 35px;
+    height: 35px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+    border: 3px solid var(--ion-color-primary);
+}
+
+// For Active Circle
+.md-stepper-horizontal.orange .md-step.active .md-step-circle {
+    background-color: var(--ion-color-primary);
+    color: white;
+}
+
+// For Font Setting
+.md-stepper-horizontal .md-step .md-step-title {
+    margin-top: 16px;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+}
+
+// For Horizontal Line
+.md-stepper-horizontal .md-step .md-step-bar-left,
+.md-stepper-horizontal .md-step .md-step-bar-right {
+    position: absolute;
+    top: 36px;
+    height: 1px;
+    border-top: 1px solid #dddddd;
+}
+// For Rigth Side
+.md-stepper-horizontal .md-step .md-step-bar-right {
+    right: 0;
+    left: 50%;
+    margin-left: 20px;
+}
+// For Left Side
+.md-stepper-horizontal .md-step .md-step-bar-left {
+    left: 0;
+    right: 50%;
+    margin-right: 20px;
+}
+
+ion-input {
+    font-size: 13px;
+    --padding-start: 0;
+    --background: var(--ion-toolbar-item-background-color);
+    border-radius: 12px;
+    ::ng-deep .native-input {
+        --padding-start: 10px !important;
+    }
+}
+
+ion-item {
+    ion-card {
+        --background: var(--ion-toolbar-item-background-color);
+        width: 100%;
+        height: 60%;
+        border-radius: 12px;
+        p {
+            font-weight: 600;
+            font-size: 13px;
+            margin: 0;
+            padding: 3px;
+        }
+        ion-icon {
+            vertical-align: middle;
+            zoom: 1.2;
+        }
+    }
+}

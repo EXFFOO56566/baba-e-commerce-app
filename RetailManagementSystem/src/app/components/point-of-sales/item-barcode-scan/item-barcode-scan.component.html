@@ -1,0 +1,34 @@
+<!-- ----------------------------- For General ------------------------------------ -->
+<form [formGroup]="form">
+  <ion-row class="justify-content-center align-items-center">
+    <ion-col size-md="2" class="ion-align-self-center">
+      <label>Item Code/Bar Code</label>
+    </ion-col>
+    <ion-col size-md="2.5">
+      <ion-input #code formControlName="code" appBarcodeScaner (keypress)="eventHandler($event)"
+        (keyup.Backspace)="backSpaceHandle()" (onDetected)="onDetected($event)" type="text">
+      </ion-input>
+    </ion-col>
+    <!-- For Search Recommendations Item Code -->
+    <dx-list *ngIf="serachList?.length>0" noDataText (keydown.esc)="escape()" (onContentReady)="onContentReady($event)"
+      [tabIndex]="selected" selectionMode="single" pageLoadMode="scrollBottom" (onSelectionChanged)="returnItem($event)"
+      class="search-item-code" [class.search-item-code-price]="!form.value.priceCheck" [height]="180"
+      itemTemplate="item" #list [dataSource]="listDataSource">
+      <div *dxTemplate="let data of 'item'">
+        <ion-item class="searchList">
+          <ion-label class="listBlock" text-center>{{data.itemCode}} </ion-label>
+          <ion-label class="listBlock" text-center>{{data.itemName}} </ion-label>
+          <ion-label class="listBlock" text-center>{{data.barcode}} </ion-label>
+        </ion-item>
+      </div>
+    </dx-list>
+    <ion-col size-md="1" class="ion-align-self-center ion-text-center">
+      <label>Quantity</label>
+    </ion-col>
+    <ion-col size-md="2.5">
+      <ion-input onkeypress="if(this.value.length == 5) return false" tabindex="1" (keypress)="numberOnly($event)"
+        #quantity formControlName="qty" (keyup.enter)="addProduct()" type="number">
+      </ion-input>
+    </ion-col>
+  </ion-row>
+</form>

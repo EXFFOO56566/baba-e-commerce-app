@@ -1,0 +1,146 @@
+ion-header {
+    ion-toolbar {
+        position: absolute;
+    }
+    .header-md::after {
+        display: none !important;
+    }
+}
+ion-content {
+    --background: var(--ion-toolbar-item-background-color);
+    .header-grid {
+        position: absolute;
+        z-index: 9999;
+        top: 0;
+        width: 100%;
+        ion-icon {
+            zoom: 1.7;
+        }
+    }
+    ion-card {
+        background: var(--ion-color-primary);
+        ion-card-header {
+            ion-grid {
+                ion-row {
+                    ion-col {
+                        ion-icon,
+                        ion-card-subtitle {
+                            color: var(--ion-color-primary-contrast);
+                            vertical-align: middle;
+                        }
+                        ion-label {
+                            color: var(--ion-color-primary-contrast);
+                            padding-left: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    ion-card:nth-child(4) {
+        background: var(--ion-toolbar-secondary-background-color) !important;
+        ion-label {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--ion-text-color);
+            del {
+                font-size: 13px;
+                font-weight: 500;
+                color: gray;
+            }
+            ion-button {
+                height: 50%;
+                width: 25%;
+                position: absolute;
+                top: 6px;
+                // left: 50%;
+                // del {
+                //     color: var(--ion-color-primary) !important;
+                // }
+            }
+        }
+
+        ion-card-content {
+            ion-card-subtitle {
+                color: var(--ion-text-color);
+            }
+            ion-label {
+                padding-top: 10px;
+                display: flex;
+                ion-icon {
+                    zoom: 0.9;
+                }
+                p:nth-child(1) {
+                    padding-right: 5px;
+                }
+                p:nth-child(7) {
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    font-size: 13px;
+                }
+                p:nth-child(8) {
+                    padding-left: 5px;
+                    border-left: 1px solid black;
+                    border-right: 1px solid black;
+                    padding-right: 5px;
+                    font-size: 13px;
+                }
+                p:nth-child(9) {
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+
+    ion-card:nth-child(5),
+    :nth-child(6),
+    :nth-child(7) {
+        background: var(--ion-toolbar-secondary-background-color) !important;
+        ion-card-header {
+            ion-card-subtitle {
+                font-weight: 600;
+                color: var(--ion-text-color);
+            }
+        }
+        ion-card-content {
+            ion-item {
+                --background: var(--ion-toolbar-secondary-background-color) !important;
+                --padding-start: 0;
+                ion-label {
+                    ion-icon {
+                        zoom: 0.8;
+                        vertical-align: middle;
+                    }
+                    p {
+                        font-size: 12px;
+                    }
+                }
+            }
+            ion-card-subtitle {
+                color: var(--ion-text-color);
+            }
+        }
+    }
+
+    ion-card:nth-child(8) {
+        background: var(--ion-toolbar-item-background-color) !important;
+        box-shadow: none;
+        ion-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--ion-text-color);
+        }
+    }
+}
+
+.width-btn {
+    width: 50%;
+}
+
+.bg-btn {
+    background: var(--ion-color-primary);
+    color: var(--ion-color-primary-contrast);
+}

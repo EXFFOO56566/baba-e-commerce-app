@@ -1,0 +1,33 @@
+<!-- -------------------------------------- For Online Orders ------------------------------------ -->
+<ion-card class="online-order-card ion-no-margin ion-margin-top">
+  <ion-card-header>
+    <ion-card-title>
+      Online Customer Orders
+    </ion-card-title>
+  </ion-card-header>
+  <ion-card-content class="ion-no-padding">
+    <table>
+      <thead>
+        <tr>
+          <th class="text-eclipse">
+            Order #</th>
+          <th class="text-eclipse">
+            NAME</th>
+          <th class="text-eclipse">
+            DATE</th>
+        </tr>
+      </thead>
+      <tr *ngFor="let order of onlineOrders; let i = index" style="overflow-y: scroll; background: white;">
+        <td style="width: 5%; text-align: center;">
+          {{order.orderId}}
+        </td>
+        <td style="width: 16%; text-align: center;">
+          {{order.customerName}}
+        </td>
+        <td style="width: 6%;text-align: center;">
+          {{order.date}}
+        </td>
+      </tr>
+    </table>
+  </ion-card-content>
+</ion-card>

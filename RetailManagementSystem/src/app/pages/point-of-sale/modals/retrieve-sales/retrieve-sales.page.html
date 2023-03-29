@@ -1,0 +1,68 @@
+<ion-header class="ion-card-header">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-align-self-center" size="8" size-lg="8" size-sm="6" size-xs="8">
+        <ion-title>Retrieve Sales</ion-title>
+      </ion-col>
+      <ion-col size="4" size-lg="4" size-xs="4">
+        <ion-icon class="close-icon" name="close-outline" (click)="close(null)">
+        </ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content class="ion-no-padding">
+  <ion-grid class="ion-no-padding">
+    <ion-row *ngIf="gridView">
+      <ion-col>
+        <table>
+          <thead>
+            <tr>
+              <th>Till No</th>
+              <th>Customer Name</th>
+              <th>Mobile Number</th>
+              <th>Total Items</th>
+              <th>INVOICE TOTAL</th>
+              <th>Transaction ID</th>
+              <th>Transaction Date</th>
+            </tr>
+          </thead>
+          <tr tabindex="1" (click)="getHoldOrder(item)"
+            *ngFor="let item of tempData; let i = index" style="overflow-y: scroll;">
+            <td class="ion-text-center">
+              {{item.tillNumber}}
+            </td>
+            <td class="ion-text-center">
+              {{item.customerInfo?.CustomerName}}
+            </td>
+            <td class="ion-text-center">
+              {{item.customerInfo?.CustomerPhoneNo}}
+            </td>
+            <td class="ion-text-center">
+              {{item.numberOfItems}}
+            </td>
+            <td class="ion-text-center">
+              {{item.invoiceTotal}}
+            </td>
+            <td class="ion-text-center">
+              {{item.transactionId}}
+            </td>
+            <td class="ion-text-center">
+              {{item.transactionDate | date:'medium'}}
+            </td>
+          </tr>
+        </table>
+      </ion-col>
+    </ion-row>
+
+    <div class="no-category-found-content" *ngIf="!gridView">
+      <ion-row class="ion-no-padding">
+        <ion-col size="12" class="ion-no-padding">
+          <ion-icon color="primary" name="alert-circle-outline"></ion-icon>
+          <h4>No Record Found.</h4>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,95 @@
+ion-card {
+    --background: var(--ion-toolbar-item-background-color);
+    ion-card-header {
+        ion-item {
+            --background: none;
+            --padding-start: 0;
+            ion-thumbnail {
+                background: var(--ion-toolbar-secondary-background-color);
+                height: 80%;
+                width: 30%;
+            }
+
+            ion-label {
+                font-size: 14px;
+                font-weight: 600;
+                color: var(--ion-text-color);
+                del {
+                    font-size: 13px;
+                    font-weight: 500;
+                    color: gray;
+                }
+                ion-button {
+                    font-size: 11px;
+                    height: 20px;
+                    width: fit-content;
+                    display: block;
+                }
+                .p-lbl {
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: var(--ion-text-color);
+                }
+                .p-desc {
+                    font-size: 12px;
+                    font-weight: 500;
+                    color: gray;
+                }
+
+                ion-icon {
+                    zoom: 1.6;
+                }
+            }
+            ion-icon {
+                zoom: 0.7;
+            }
+        }
+    }
+}
+
+ion-card {
+    ion-card-header {
+        font-weight: 600;
+        color: var(--ion-text-color);
+        ion-card-subtitle {
+            font-weight: 600;
+            color: var(--ion-text-color);
+        }
+    }
+    ion-card-content {
+        ion-input {
+            --padding-start: 0;
+            --background: var(--ion-toolbar-secondary-background-color);
+            border-radius: 12px;
+            ::ng-deep .native-input {
+                --padding-start: 10px !important;
+            }
+        }
+    }
+}
+
+.total-title {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.btn-checkout {
+    width: -webkit-fill-available;
+    --border-radius: 18px;
+}
+
+.clr {
+    color: var(--ion-text-color);
+}
+
+.icon {
+    vertical-align: middle;
+}
+
+.ltrAlign {
+    text-align: right;
+}
+
+.rtlAlign {
+    text-align: left;
+}

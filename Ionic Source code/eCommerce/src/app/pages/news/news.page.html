@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [icon]="config.direction == 'ltr'?'arrow-back': 'arrow-forward'"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{config.language.Blog}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let dat of [1,2]"  class="ion-margin ion-no-padding">
+    <ion-card-header class="ion-no-padding">
+      <img src="assets/shirtsTwo/Banner8.png" />
+      <ion-label class="ion-margin-top ion-text-center">
+        March 4, 2016
+      </ion-label>
+    </ion-card-header>
+
+    <ion-card-content class="ion-no-padding">
+      <ion-card-title class="ion-text-center ion-margin-top ion-margin-bottom">
+        {{config.language.WebSiteTourist}}
+      </ion-card-title>
+
+      <p class="ion-margin-start ion-padding-start ion-margin-top lbl-size">
+        {{config.language.GlobalText}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

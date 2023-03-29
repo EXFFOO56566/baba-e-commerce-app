@@ -1,0 +1,162 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [icon]="config.direction == 'ltr'?'arrow-back': 'arrow-forward'"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{config.language.OrderDetail}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- For Horizontal Stepper -->
+  <div class="md-stepper-horizontal orange">
+    <div class="md-step active">
+      <div class="md-step-circle"><span>1</span></div>
+      <div class="md-step-title">{{config.language.Shipping}}</div>
+      <div class="md-step-bar-left"></div>
+      <div class="md-step-bar-right"></div>
+    </div>
+    <div class="md-step active">
+      <div class="md-step-circle"><span>2</span></div>
+      <div class="md-step-title">{{config.language.ShippingMethod}}</div>
+      <div class="md-step-bar-left"></div>
+      <div class="md-step-bar-right"></div>
+    </div>
+    <div class="md-step active">
+      <div class="md-step-circle"><span>3</span></div>
+      <div class="md-step-title">{{config.language.PlaceOrder}}</div>
+      <div class="md-step-bar-left"></div>
+      <div class="md-step-bar-right"></div>
+    </div>
+  </div>
+
+
+  <ion-card class="ion-no-margin">
+    <ion-card-header class="ion-padding">
+      {{config.language.BillingAddress}}
+    </ion-card-header>
+    <ion-card-content class="ion-padding">
+      {{config.language['2084 Forest Drive,Chantilly,Virginia,22021']}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="ion-no-margin">
+    <ion-card-header class="ion-padding">
+      {{config.language.ShippingAddress}}
+    </ion-card-header>
+    <ion-card-content class="ion-padding">
+      {{config.language['2084 Forest Drive,Chantilly,Virginia,22021']}}
+    </ion-card-content>
+  </ion-card>
+
+  <!-- For Payment Method Card -->
+  <ion-card class="ion-no-margin">
+    <ion-card-header class="ion-padding">
+      {{config.language.SelectPaymentMethod}}
+    </ion-card-header>
+    <ion-card-content class="ion-no-padding ion-padding-horizontal">
+      <ion-list lines="none" class="ion-no-padding">
+        <ion-radio-group value="Stripe">
+          <ion-item class="ion-margin-bottom">
+            <ion-label>{{config.language.Stripe}}</ion-label>
+            <ion-radio class="ion-no-margin ion-margin-start" slot="start" value="Stripe"></ion-radio>
+          </ion-item>
+          <ion-item class="ion-margin-bottom">
+            <ion-label>{{config.language.Razorpay}}</ion-label>
+            <ion-radio class="ion-no-margin ion-margin-start" slot="start" value="Razorpay"></ion-radio>
+          </ion-item>
+          <ion-item class="ion-margin-bottom">
+            <ion-label>{{config.language.Visa}}</ion-label>
+            <ion-radio class="ion-no-margin ion-margin-start" slot="start" value="Visa"></ion-radio>
+          </ion-item>
+          <ion-item class="ion-margin-bottom">
+            <ion-label>{{config.language.CashOnDelivery}}</ion-label>
+            <ion-radio class="ion-no-margin ion-margin-start" slot="start" value="Cod"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- For My Products Card -->
+  <ion-card class="ion-no-margin">
+    <ion-card-header class="ion-padding">
+      {{config.language.MyProducts}}
+    </ion-card-header>
+    <ion-card-content class="ion-no-padding ion-padding-start" style="padding-top: 0 !important;">
+      <ion-item lines="none" *ngFor="let dat of cartDetails">
+        <ion-thumbnail>
+          <ion-img src="{{dat.image}}"></ion-img>
+        </ion-thumbnail>
+        <ion-label class="ion-padding-start">US$550.62 <del class="ion-padding-start">US$1550.50</del>
+          <p class="p-lbl">
+            {{dat.name}}
+          </p>
+          <p class="p-desc">
+            small, blue
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- For Details Card -->
+  <ion-card class="ion-no-margin">
+    <ion-card-content class="ion-no-padding ion-padding-horizontal" style="padding-top: 0 !important;">
+      <ion-row>
+        <ion-col class="clr" size="6">
+          {{config.language.SubTotal}}
+        </ion-col>
+        <ion-col size="6" [class.ltrAlign]="config.direction == 'ltr'" [class.rtlAlign]="config.direction == 'rtl'"
+          class="clr">
+          $6.00
+        </ion-col>
+
+        <ion-col class="clr" size="6">
+          {{config.language.Shipping}}
+        </ion-col>
+        <ion-col size="6" [class.ltrAlign]="config.direction == 'ltr'" [class.rtlAlign]="config.direction == 'rtl'"
+          class="clr">
+          $0.00
+        </ion-col>
+
+        <ion-col class="clr" size="6">
+          {{config.language.Tax}}
+        </ion-col>
+        <ion-col size="6" [class.ltrAlign]="config.direction == 'ltr'" [class.rtlAlign]="config.direction == 'rtl'"
+          class="clr">
+          $3.00
+        </ion-col>
+
+        <ion-col class="clr" size="6">
+          {{config.language.Discount}}
+        </ion-col>
+        <ion-col size="6" [class.ltrAlign]="config.direction == 'ltr'" [class.rtlAlign]="config.direction == 'rtl'"
+          class="clr">
+          $12.00
+        </ion-col>
+
+        <ion-col class="total-title clr" size="6">
+          {{config.language.Total}}
+        </ion-col>
+        <ion-col size="6" [class.ltrAlign]="config.direction == 'ltr'" [class.rtlAlign]="config.direction == 'rtl'"
+          class="total-title clr">
+          $12.00
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- For Order Note Card -->
+  <ion-card class="ion-no-margin">
+    <ion-card-header class="ion-padding">
+      {{config.language.OrderNote}}
+    </ion-card-header>
+    <ion-card-content class="ion-no-padding ion-padding-horizontal" style="padding-top: 0 !important;">
+      <ion-textarea placeholder="{{config.language.WriteNote}}"></ion-textarea>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button class="ion-margin btn-next" (click)="showThankYou()">{{config.language.ConfirmOrder}}</ion-button>
+
+</ion-content>

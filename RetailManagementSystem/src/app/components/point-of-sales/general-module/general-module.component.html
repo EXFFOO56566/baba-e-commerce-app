@@ -1,0 +1,124 @@
+<form [formGroup]="form">
+
+  <!-- -------------------------------- For Item/Barcode Scanner ------------------------ -->
+  <app-item-barcode-scan [form]="form"></app-item-barcode-scan>
+
+  <ion-row [class.price-margin]="!form.value.priceCheck" tabindex="-1">
+    <div class="table-wrap">
+      <table class="lableFont">
+        <thead>
+          <tr>
+            <th style="width: 3%;">Sr.</th>
+            <th style="width: 18%;">ITEM CODE</th>
+            <th style="width: 28%;">ITEM NAME</th>
+            <th style="width: 8%;">UOM</th>
+            <th style="width: 4%;">QTY</th>
+            <th style="width: 7%;">RATE</th>
+            <th style="width: 6%;">SAL.TAX</th>
+            <th style="width: 8%;">PRICE</th>
+            <th style="width: 6%;">DISCOUNT</th>
+            <th style="width: 10%;">TOTAL PRICE</th>
+          </tr>
+        </thead>
+        <tr formArrayName="itemDetail" *ngFor="let item of geAllItems.controls; let i = index"
+          style="overflow-y: scroll;">
+          <td style="width: 3%;" class="paddingTd">
+            <ion-input class="pad-iner-input ion-text-center" readonly="true" type="text" [value]=i+1>
+            </ion-input>
+          </td>
+          <td style="width: 18%;" class="paddingTd" [formGroupName]="i">
+            <ion-input class="pad-iner-input ion-text-center" readonly="true" type="text" formControlName="itemCode">
+            </ion-input>
+          </td>
+          <td style="width: 28%;" class="paddingTd" [formGroupName]="i">
+            <ion-input class="pad-iner-input ion-text-center" readonly="true" type="text" formControlName="itemName">
+            </ion-input>
+          </td>
+          <td style="width: 8%;" class="paddingTd" [formGroupName]="i">
+            <ion-input [value]="item.value.uom" class="pad-iner-input ion-text-center" readonly="true" type="text">
+            </ion-input>
+          </td>
+          <td style="width: 4%;" class="paddingTd" [formGroupName]="i">
+            <ion-input class="pad-iner-input ion-text-center" readonly="true" type="text" [value]="item.value.qty">
+            </ion-input>
+          </td>
+
+          <td style="width: 7%;" class="paddingTd" [formGroupName]="i">
+            <ion-input [value]="item.value.rate | number:'1.2-2'" class="pad-iner-input ion-text-center" readonly="true"
+              type="text">
+            </ion-input>
+          </td>
+          <td style="width: 6%;" class="paddingTd" [formGroupName]="i">
+            <ion-input [value]="item.value.tax | number:'1.2-2'" class="pad-iner-input ion-text-center" readonly="true"
+              type="text">
+            </ion-input>
+          </td>
+          <td style="width: 8%;" class="paddingTd" [formGroupName]="i">
+            <ion-input [value]="item.value.value | number:'1.2-2'" class="pad-iner-input ion-text-center"
+              readonly="true" type="text">
+            </ion-input>
+          </td>
+          <td style="width: 6%;" class="paddingTd" [formGroupName]="i">
+            <ion-input [value]="item.value.discount | number:'1.2-2'" class="pad-iner-input ion-text-center"
+              readonly="true" type="text">
+            </ion-input>
+          </td>
+
+          <td class="paddingTd" [formGroupName]="i">
+            <ion-input [value]="item.value.price | number:'1.2-2'" class="pad-iner-input ion-text-center"
+              readonly="true" type="text">
+            </ion-input>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </ion-row>
+
+  <!-- ------------------------------------------- For Total Calculations ------------------------------------- -->
+  <ion-row tabindex="-1" *ngIf="form.value.priceCheck">
+    <ion-col>
+      <label>Total</label>
+    </ion-col>
+    <table style="margin-bottom: 0;" class="lableFont">
+      <thead>
+        <tr>
+          <td style="width: 3%;"> </td>
+          <td style="width: 18%;"> </td>
+          <td style="width: 28%;"> </td>
+          <td style="width: 8%;"> </td>
+          <td style="width: 4%;">
+            <ion-input class="pad-iner-input ion-text-center" readonly="true" type="text"
+              [value]="form.get('numberOfItems').value | number:'1.2-2'">
+            </ion-input>
+          </td>
+          <td style="width: 7%;">
+            <ion-input [value]="form.get('amount').value | number:'1.2-2'" class="pad-iner-input ion-text-center"
+              readonly="true" type="text">
+            </ion-input>
+          </td>
+          <td style="width: 6%;">
+            <ion-input [value]="form.get('saleTax').value | number:'1.2-2'" class="pad-iner-input ion-text-center"
+              readonly="true" type="text">
+            </ion-input>
+          </td>
+          <td style="width: 8%;">
+            <ion-input [value]="form.get('priceBeforeDiscount').value | number:'1.2-2'"
+              class="pad-iner-input ion-text-center" readonly="true" type="text">
+            </ion-input>
+          </td>
+          <td style="width: 6%;">
+            <ion-input [value]="form.get('discount').value | number:'1.2-2'" class="pad-iner-input ion-text-center"
+              readonly="true" type="text">
+            </ion-input>
+          </td>
+          <td style="width: 10%;">
+            <ion-input [value]="form.get('invoiceTotal').value | number:'1.2-2'" class="pad-iner-input ion-text-center"
+              readonly="true" type="text">
+            </ion-input>
+          </td>
+        </tr>
+      </thead>
+    </table>
+  </ion-row>
+
+</form>

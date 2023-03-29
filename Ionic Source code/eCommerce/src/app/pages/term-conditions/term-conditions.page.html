@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [icon]="config.direction == 'ltr'?'arrow-back': 'arrow-forward'"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{config.language.TermAndCondition}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <h4 class="ion-no-margin ion-padding">
+    {{config.language.APolicy}}
+  </h4>
+  <ion-label class="ion-padding-horizontal">
+    {{config.language.GlobalText}}
+  </ion-label>
+
+  <h4 class="ion-no-margin ion-padding">
+    {{config.language.WebsitePolicy}}
+  </h4>
+  <ion-label class="ion-padding-horizontal">
+    {{config.language.GlobalText}}
+  </ion-label>
+
+  <h4 class="ion-no-margin ion-padding">
+    {{config.language.WebSiteTourist}}
+  </h4>
+  <ion-label class="ion-padding-horizontal">
+    {{config.language.GlobalText}}
+  </ion-label>
+</ion-content>

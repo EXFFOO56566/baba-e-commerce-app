@@ -1,0 +1,10 @@
+.selected {
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    font-weight: 600;
+}
+.ellipses {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

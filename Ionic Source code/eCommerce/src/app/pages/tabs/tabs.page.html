@@ -1,0 +1,36 @@
+<ion-tabs [class.rtl]="config.direction == 'rtl'" #appTabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button [tab]="val">
+      <ion-icon name="home"></ion-icon>
+      <!-- <ion-label>
+        <b>Home</b>
+      </ion-label> -->
+    </ion-tab-button>
+    <!-- <ion-tab-button tab="search">
+      <ion-icon name="search"></ion-icon>
+      <ion-label>
+        <b>Search</b>
+      </ion-label>
+    </ion-tab-button> -->
+    <ion-tab-button tab="categories">
+      <ion-icon name="apps"></ion-icon>
+      <!-- <ion-label>
+        <b>Categories</b>
+      </ion-label> -->
+    </ion-tab-button>
+    <ion-tab-button tab="cart">
+      <ion-icon name="basket"></ion-icon>
+      <ion-badge mode="ios" color="secondary">2</ion-badge>
+      <!-- <ion-label>
+        <b>My Cart</b>
+      </ion-label> -->
+    </ion-tab-button>
+    <ion-tab-button tab="settings">
+      <ion-icon name="person"></ion-icon>
+      <!-- <ion-label>
+        <b>Account</b>
+      </ion-label> -->
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>

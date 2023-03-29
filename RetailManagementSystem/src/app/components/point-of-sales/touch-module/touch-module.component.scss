@@ -1,0 +1,48 @@
+// swiper-container
+.swiper-scrollbar {
+    position: relative !important;
+    left: 0 !important;
+    bottom: 0px !important;
+    height: 5px !important;
+    width: 100% !important;
+    margin-top: 7px;
+    opacity: 1 !important;
+    .swiper-scrollbar-drag {
+        background: #fd8b06 !important;
+    }
+}
+
+ion-toolbar {
+    min-height: inherit;
+    ion-slides {
+        background-color: white;
+        ion-slide {
+            height: 56px;
+            width: auto !important;
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+            font-size: 14px !important;
+            border-top-width: 0 !important;
+            border-left-width: 0 !important;
+            border-right-width: 0 !important;
+            border-bottom-style: solid !important;
+            border-bottom-width: 2px !important;
+            border-bottom-color: transparent !important;
+            color: var(--ion-text-color) !important;
+        }
+        .selected {
+            color: var(--ion-color-primary);
+            border: 1px solid var(--ion-color-primary) !important;
+            font-weight: bold;
+        }
+    }
+}
+
+.border {
+    border-right: 1px solid;
+}
+
+.icon-zoom {
+    zoom: 1.2;
+    margin-right: 5px;
+}

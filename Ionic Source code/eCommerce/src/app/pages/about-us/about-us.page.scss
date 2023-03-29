@@ -1,0 +1,22 @@
+ion-content {
+    ion-item {
+        --padding-start: 0;
+        --background: var(--ion-toolbar-item-background-color);
+        ion-grid {
+            ion-row {
+                ion-col {
+                    ion-label {
+                        display: inline-flex;
+                        ion-icon {
+                            zoom: 1.2;
+                        }
+                        p {
+                            margin-left: 10px;
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

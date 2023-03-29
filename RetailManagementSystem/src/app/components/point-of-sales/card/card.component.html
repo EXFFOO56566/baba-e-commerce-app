@@ -1,0 +1,315 @@
+<div *ngIf="p==1" style="padding-left: 10px;" class="ion-text-center">
+  <ion-skeleton-text animated style="width: 100px; height: 65px;"></ion-skeleton-text>
+  <ion-skeleton-text animated style="width: 80px; height: 20px;"></ion-skeleton-text>
+</div>
+
+<div>
+  <!-- Design 1 (For Home-1) -->
+  <ion-card class="flash" (click)="showProductDetail()" *ngIf="type=='flash' || type=='featured'">
+    <ion-card-header class="ion-no-padding">
+      <img id="image" src="{{p.image}}">
+    </ion-card-header>
+    <ion-card-content class="ion-no-padding">
+      <p class="ion-text-center ellipses">{{p.name}}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Design 1-1 (For Home-1) -->
+  <ion-card class="hot" (click)="showProductDetail()" *ngIf="type=='hot'">
+    <ion-card-header class="ion-no-padding">
+      <img id="image" src="{{p.image}}">
+    </ion-card-header>
+    <ion-card-content class="ion-no-padding">
+      <p class="ion-text-center ellipses">{{p.name}}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Design 2 (For Home-1) -->
+  <ion-card class="recommend" *ngIf="type == 1">
+    <ion-card-header class="ion-no-padding">
+      <img id="image" src="{{p.image}}" (click)="showProductDetail()">
+    </ion-card-header>
+    <ion-card-content class="ion-no-padding">
+      <ion-grid class="ion-no-padding ion-padding-top">
+        <ion-row>
+          <ion-col class="ion-no-padding" size="10">
+            <p class="ellsipses" (click)="showProductDetail()">{{p.name}}</p>
+          </ion-col>
+          <ion-col class="ion-no-padding" size="12">
+            <p class="price" (click)="showProductDetail()">$20.00</p>
+          </ion-col>
+          <ion-col class="ion-no-padding" size="10">
+            <p (click)="showProductDetail()">
+              <ion-icon color="primary" name="star"></ion-icon>
+              <ion-icon color="primary" name="star"></ion-icon>
+              <ion-icon color="primary" name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+            </p>
+          </ion-col>
+          <ion-col class="ion-no-padding" size="2">
+            <ion-icon name="cart"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Design 3 (For Listing)-->
+  <ion-card class="listing" *ngIf="type=='listing'">
+    <ion-item>
+      <ion-thumbnail>
+        <ion-img (click)="showProductDetail()" class="ion-padding-end" src="{{p.image}}"></ion-img>
+      </ion-thumbnail>
+      <ion-label class="ion-padding-start">US$550.62
+        <p (click)="showProductDetail()">
+          120 Products
+        </p>
+      </ion-label>
+      <ion-icon color="primary" name="heart-outline"></ion-icon>
+    </ion-item>
+  </ion-card>
+
+  <!-- Design 4 (For WishList) -->
+  <ion-card class="wishlist" *ngIf="type==2">
+    <ion-card-header class="ion-no-padding header-img">
+      <img (click)="showProductDetail()" id="image" src="{{p.image}}">
+      <div>
+        <ion-icon color="primary" name="heart-outline"></ion-icon>
+      </div>
+    </ion-card-header>
+    <ion-card-content class="ion-margin-top">
+      <p (click)="showProductDetail()" class="ion-text-center">{{p.name}}</p>
+      <p (click)="showProductDetail()" class="ion-text-center">$380.00</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Design 5 (Used In Home-3) -->
+  <ion-card class="collection" *ngIf="type==5 || type=='Collection'">
+    <ion-card-header class="ion-no-padding">
+      <img id="image" src="{{p.image}}" (click)="showProductDetail()">
+      <div class="discount" [ngStyle]="config.direction == 'rtl' ? {'left':  '0', 'right': 'inherit'} : {}">
+        -20%
+      </div>
+      <div [ngStyle]="config.direction == 'rtl' ? {'left':  '15px', 'right': 'inherit'} : {}">
+        <ion-icon name="cart"></ion-icon>
+      </div>
+    </ion-card-header>
+    <ion-card-content class="ion-no-padding">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <p class="name" (click)="showProductDetail()">{{p.name}}</p>
+          </ion-col>
+          <ion-col size="12" class="ion-no-padding">
+            <p class="price" (click)="showProductDetail()">$12.00</p>
+          </ion-col>
+          <ion-col size="3.8" class="ion-no-padding">
+            <p (click)="showProductDetail()"><del class="gray">$550.62</del></p>
+          </ion-col>
+          <ion-col class="collection-icon" size="5.2">
+            <p (click)="showProductDetail()">
+              <ion-icon color="primary" name="star"></ion-icon>
+              <ion-icon color="primary" name="star"></ion-icon>
+              <ion-icon color="primary" name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+            </p>
+          </ion-col>
+          <ion-col size="3" class="ion-no-padding ion-align-self-center">
+            <p class="gray" (click)="showProductDetail()">(152)</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Design 5 (Used In Home-3) -->
+  <ion-card class="card-3" *ngIf="type==3">
+    <ion-card-header class="ion-no-padding">
+      <img id="image" src="{{p.image}}" (click)="showProductDetail()">
+      <div [ngStyle]="config.direction == 'rtl' ? {'left':  '15px', 'right': 'inherit'} : {}">
+        <ion-icon name="cart"></ion-icon>
+      </div>
+    </ion-card-header>
+    <ion-card-content class="ion-no-padding">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" class="ion-no-padding">
+            <p class="name" (click)="showProductDetail()">{{p.name}}</p>
+          </ion-col>
+          <ion-col size="12" class="ion-no-padding">
+            <p class="price" (click)="showProductDetail()">$12.00</p>
+          </ion-col>
+          <ion-col size="6" class="ion-no-padding ion-align-self-center">
+            <p class="subname" (click)="showProductDetail()">1 {{p.name}}</p>
+          </ion-col>
+          <ion-col class="collection-icon" size="6">
+            <p (click)="showProductDetail()">
+              <ion-icon color="primary" name="star"></ion-icon>
+              <ion-icon color="primary" name="star"></ion-icon>
+              <ion-icon color="primary" name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Design 6 (Used In Home-5) -->
+  <ion-card class="onSale" *ngIf="type==4 || type=='onSale'">
+    <ion-card-header class="ion-no-padding header-img">
+      <img (click)="showProductDetail()" id="image" src="{{p.image}}">
+      <div>
+        <ion-icon color="primary" name="heart-outline"></ion-icon>
+      </div>
+    </ion-card-header>
+    <ion-card-content class="ion-margin-horizontal ion-margin-bottom ion-no-padding">
+      <p (click)="showProductDetail()" class="ion-text-center">{{p.name}}</p>
+      <p (click)="showProductDetail()" class="ion-text-center">$380.00 <del>$550.62</del></p>
+
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Design 7 (Used In Home-6) -->
+  <ion-card class="card-7" *ngIf="type==7">
+    <ion-card-header class="ion-no-padding header-img">
+      <img (click)="showProductDetail()" id="image" src="{{p.image}}">
+      <div class="price">
+        $380.00
+      </div>
+      <div class="icon">
+        <ion-icon name="heart-outline"></ion-icon>
+      </div>
+    </ion-card-header>
+    <ion-card-content class="ion-margin-top ion-no-padding">
+      <p (click)="showProductDetail()" class="ion-text-center">{{p.name}}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Design 8 (For Home-7) -->
+  <ion-card class="hot-8" (click)="showProductDetail()" *ngIf="type=='hot-8'">
+    <ion-card-header class="ion-no-padding">
+      <img id="image" src="{{p.image}}">
+    </ion-card-header>
+    <ion-card-content class="ion-no-padding">
+      <p class="ion-text-center ellipses">{{p.name}}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Design 8 (For Home-7) -->
+  <ion-card class="card-8" (click)="showProductDetail()" *ngIf="type==8">
+    <ion-card-header class="ion-no-padding">
+      <img id="image" src="{{p.image}}">
+      <div>
+        <ion-icon color="primary" name="heart-outline"></ion-icon>
+      </div>
+    </ion-card-header>
+    <ion-card-content class="ion-padding">
+      <p class="ion-text-center ellipses">{{p.name}}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Design 8 (For Home-7) -->
+  <ion-card class="card-9" (click)="showProductDetail()" *ngIf="type=='card-9' || type == 9">
+    <ion-card-header class="ion-no-padding header-img">
+      <img (click)="showProductDetail()" id="image" src="{{p.image}}">
+      <div>
+        <ion-icon name="cart"></ion-icon>
+      </div>
+    </ion-card-header>
+    <ion-card-content class="ion-margin-top ion-no-padding">
+      <p (click)="showProductDetail()" class="ion-text-center">{{p.name}}</p>
+      <p (click)="showProductDetail()" class="collection-icon ion-text-center">
+        <ion-icon color="primary" name="star"></ion-icon>
+        <ion-icon color="primary" name="star"></ion-icon>
+        <ion-icon color="primary" name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Design 9 (For Home-9) -->
+  <ion-card class="card-6" (click)="showProductDetail()" *ngIf="type==6">
+    <ion-card-header class="ion-no-padding header-img">
+      <img (click)="showProductDetail()" id="image" src="{{p.image}}">
+      <div class="price">
+        20%
+      </div>
+    </ion-card-header>
+    <ion-card-content class="ion-padding">
+      <ion-grid class="ion-no-padding">
+        <ion-row>
+          <ion-col class="ion-no-padding" size="12">
+            <p class="name" (click)="showProductDetail()">{{p.name}}</p>
+          </ion-col>
+          <ion-col class="ion-no-padding" size="12">
+            <p class="price-del" (click)="showProductDetail()">$380.00 <del>$550.62</del></p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Design 10 (For Home-10) -->
+  <ion-card class="card-11" (click)="showProductDetail()" *ngIf="type=='card-11'">
+    <ion-card-header class="ion-no-padding header-img">
+      <img (click)="showProductDetail()" id="image" src="{{p.image}}">
+      <div class="price">
+        {{config.language.Sale}}
+      </div>
+      <div class="cart">
+        <ion-icon name="cart"></ion-icon>
+      </div>
+    </ion-card-header>
+    <ion-card-content class="ion-padding">
+      <ion-grid class="ion-no-padding">
+        <ion-row>
+          <ion-col size="12">
+            <p (click)="showProductDetail()" class="collection-icon star-icon">
+              <ion-icon color="primary" name="star"></ion-icon>
+              <ion-icon color="primary" name="star"></ion-icon>
+              <ion-icon color="primary" name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+            </p>
+          </ion-col>
+          <ion-col class="ion-no-padding" size="12">
+            <p class="name" (click)="showProductDetail()">{{p.name}}</p>
+          </ion-col>
+          <ion-col class="ion-no-padding" size="12">
+            <p class="price-del" (click)="showProductDetail()">$380.00 <del>$550.62</del></p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Style Card-10 -->
+  <ion-card class="card-10" (click)="showProductDetail()" *ngIf="type == 10">
+    <ion-card-header class="ion-no-padding header-img">
+      <img (click)="showProductDetail()" id="image" src="{{p.image}}">
+      <div class="price" [ngStyle]="{right: config.direction == 'ltr' ? '0' : '5px'  }">
+        {{config.language.Sale}}
+      </div>
+      <div [ngStyle]="config.direction == 'rtl' ? {'left':  '15px', 'right': 'inherit'} : {}">
+        <ion-icon name="cart"></ion-icon>
+      </div>
+    </ion-card-header>
+    <ion-card-content class="ion-margin-top ion-no-padding ion-padding-horizontal">
+      <p (click)="showProductDetail()" class="collection-icon">
+        <ion-icon color="primary" name="star"></ion-icon>
+        <ion-icon color="primary" name="star"></ion-icon>
+        <ion-icon color="primary" name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+      </p>
+      <p (click)="showProductDetail()">{{p.name}}</p>
+      <p class="price-del" (click)="showProductDetail()">$380.00 <del>$550.62</del></p>
+
+    </ion-card-content>
+  </ion-card>
+</div>

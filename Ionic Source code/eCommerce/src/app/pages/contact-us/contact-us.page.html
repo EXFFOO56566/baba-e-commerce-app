@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [icon]="config.direction == 'ltr'?'arrow-back': 'arrow-forward'"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{config.language.ContactUs}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item class="ion-margin-top" lines="none">
+    <ion-input placeholder="{{config.language.FullName}}"></ion-input>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-input placeholder="{{config.language.Email}}"></ion-input>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-textarea placeholder="{{config.language.YourComment}}">
+    </ion-textarea>
+  </ion-item>
+
+  <ion-button class="ion-margin btn-next">{{config.language.Save}}</ion-button>
+
+</ion-content>

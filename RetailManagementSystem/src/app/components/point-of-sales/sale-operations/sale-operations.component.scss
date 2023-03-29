@@ -1,0 +1,21 @@
+.operationalBtn {
+    --background: white;
+    margin: 0;
+    --color: black;
+    width: 100%;
+    font-size: 12px;
+    border-radius: 10px;
+    box-shadow: -2px -3px 20px -1px rgba(26, 25, 23, 0.26);
+    height: 68px;
+    font-weight: bold;
+}
+
+.btn-hov:hover {
+    --background-hover: linear-gradient(
+        190deg,
+        var(--ion-color-primary) 25%,
+        white 100%,
+        var(--ion-color-primary) 0%
+    );
+    --background-hover-opacity: 2;
+}

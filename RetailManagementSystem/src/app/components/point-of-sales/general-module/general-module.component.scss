@@ -1,0 +1,66 @@
+.table-wrap {
+    height: calc(100vh - 46.7vh);
+    overflow-y: auto;
+    width: 100%;
+    // table {
+    //     font-size: 12px !important;
+    //     font-weight: 500;
+    //     width: 100%;
+
+    //     thead {
+    //         background: gainsboro;
+    //     }
+
+    //     .paddingTd {
+    //         padding-left: 0 !important;
+    //         padding-right: 0 !important;
+    //         padding-top: 3px !important;
+    //         padding-bottom: 3px !important;
+    //     }
+
+    //     .pad-iner-input {
+    //         --padding-bottom: 0;
+    //         --padding-end: 0;
+    //         --padding-start: 0;
+    //         --padding-top: 0;
+    //     }
+    // }
+}
+
+table {
+    font-size: 12px !important;
+    font-weight: 500;
+    width: 100%;
+
+    thead {
+        background: gainsboro;
+    }
+
+    .paddingTd {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-top: 3px !important;
+        padding-bottom: 3px !important;
+    }
+
+    .pad-iner-input {
+        --padding-bottom: 0;
+        --padding-end: 0;
+        --padding-start: 0;
+        --padding-top: 0;
+    }
+}
+.table-wrap-touch {
+    height: calc(100vh - 44vh) !important;
+}
+
+.table-wrap-touch-items {
+    height: calc(100vh - 68vh) !important;
+}
+
+.price-margin {
+    margin-top: 15px;
+    table {
+        border: 1px solid;
+    }
+}

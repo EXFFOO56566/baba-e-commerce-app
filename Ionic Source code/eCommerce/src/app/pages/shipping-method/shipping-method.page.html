@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [icon]="config.direction == 'ltr'?'arrow-back': 'arrow-forward'"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{config.language.ShippingMethod}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- For Horizontal Stepper -->
+  <div class="md-stepper-horizontal orange">
+    <div class="md-step active">
+      <div class="md-step-circle"><span>1</span></div>
+      <div class="md-step-title">{{config.language.Shipping}}</div>
+      <div class="md-step-bar-left"></div>
+      <div class="md-step-bar-right"></div>
+    </div>
+    <div class="md-step active">
+      <div class="md-step-circle"><span>2</span></div>
+      <div class="md-step-title">{{config.language.ShippingMethod}}</div>
+      <div class="md-step-bar-left"></div>
+      <div class="md-step-bar-right"></div>
+    </div>
+    <div class="md-step">
+      <div class="md-step-circle"><span>3</span></div>
+      <div class="md-step-title">{{config.language.PlaceOrder}}</div>
+      <div class="md-step-bar-left"></div>
+      <div class="md-step-bar-right"></div>
+    </div>
+  </div>
+
+  <!-- For Promo Code Card -->
+  <ion-card class="ion-no-margin ion-margin-horizontal">
+    <ion-card-header class="ion-no-padding ion-padding-start">
+      <ion-card-subtitle>
+        {{config.language.SelectShippingMethod}}
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content class="ion-no-padding">
+      <ion-list lines="none">
+        <ion-radio-group value="biff">
+          <ion-item class="ion-margin-bottom">
+            <ion-label>{{config.language.FreeShipping}} $0.00</ion-label>
+            <ion-radio class="ion-no-margin ion-margin-start" slot="start" value="biff"></ion-radio>
+          </ion-item>
+          <ion-item class="ion-margin-bottom">
+            <ion-label>{{config.language.LocalPickup}} $0.00</ion-label>
+            <ion-radio class="ion-no-margin ion-margin-start" slot="start" value="griff"></ion-radio>
+          </ion-item>
+          <ion-item class="ion-margin-bottom">
+            <ion-label>{{config.language.ExpressShipping}} $10.00</ion-label>
+            <ion-radio class="ion-no-margin ion-margin-start" slot="start" value="buford"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button class="ion-margin btn-next" (click)="showOrderDetails()">{{config.language.Next}}</ion-button>
+
+</ion-content>

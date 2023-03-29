@@ -1,0 +1,21 @@
+ion-content {
+    .segment-button-checked {
+        font-weight: 600;
+    }
+    ion-card {
+        background: var(--ion-toolbar-item-background-color);
+        ion-col {
+            color: var(--ion-text-color);
+        }
+        .col-bold {
+            font-weight: 600;
+        }
+    }
+    .ltrAlign {
+        text-align: right;
+    }
+
+    .rtlAlign {
+        text-align: left;
+    }
+}

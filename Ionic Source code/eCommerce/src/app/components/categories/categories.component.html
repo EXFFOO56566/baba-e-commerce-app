@@ -1,0 +1,71 @@
+<div class="roundImage" *ngIf="type=='roundImage'">
+  <ion-slides class="animate-item" [options]="sliderConfig2">
+    <ion-slide *ngFor="let c of shared.categories">
+      <!-- For Real Products -->
+      <ion-card *ngIf="c!=1" (click)="showShop()" class="ion-no-margin ion-margin-top">
+        <ion-avatar>
+          <ion-icon [name]='c.icon'></ion-icon>
+          <!-- <img src="{{c.icon}}" /> -->
+        </ion-avatar>
+        <ion-label style="padding-top: 5px;">
+          {{c.name}}
+        </ion-label>
+      </ion-card>
+      <!-- For Skeleton -->
+
+      <ion-card *ngIf="c==1" class="card-skeleton-h8">
+        <ion-avatar>
+          <ion-skeleton-text class="skeleton-h8" animated>
+          </ion-skeleton-text>
+        </ion-avatar>
+        <p>
+          <ion-skeleton-text animated>
+          </ion-skeleton-text>
+        </p>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</div>
+
+<div class="simple" *ngIf="type=='simple'">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3" *ngFor="let c of shared.categories">
+        <ion-card (click)="showShop()" class="ion-text-center ion-no-margin">
+          <ion-icon [class.add]="config.homePage == 2" [name]='c.icon'></ion-icon>
+          <ion-label>
+            {{c.name}}
+          </ion-label>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+
+<div class="roundImageBorder" *ngIf="type=='roundImageBorder'">
+  <ion-slides class="animate-item" [options]="sliderConfig2">
+    <ion-slide *ngFor="let c of shared.categories">
+      <!-- For Real Products -->
+      <ion-card *ngIf="c!=1" (click)="showShop()" class="ion-no-margin ion-margin-top">
+        <ion-avatar>
+          <ion-icon [name]='c.icon'></ion-icon>
+          <ion-label>
+            {{c.name}}
+          </ion-label>
+        </ion-avatar>
+      </ion-card>
+      <!-- For Skeleton -->
+
+      <ion-card *ngIf="c==1" class="card-skeleton-h8">
+        <ion-avatar>
+          <ion-skeleton-text class="skeleton-h8" animated>
+          </ion-skeleton-text>
+        </ion-avatar>
+        <p>
+          <ion-skeleton-text animated>
+          </ion-skeleton-text>
+        </p>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</div>

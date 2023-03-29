@@ -1,0 +1,28 @@
+ion-card {
+    box-shadow: none;
+    background: none;
+    ion-card-header {
+        ion-card-title {
+            font-size: 17px;
+        }
+    }
+
+    ion-card-content {
+        ion-icon {
+            zoom: 1.6;
+        }
+        ion-card-subtitle {
+            font-size: 17px;
+        }
+
+        ion-textarea {
+            background: var(--ion-background-color);
+            min-height: 120px;
+        }
+    }
+    ion-button {
+        width: 30%;
+        height: 24px;
+        --border-radius: 10px;
+    }
+}

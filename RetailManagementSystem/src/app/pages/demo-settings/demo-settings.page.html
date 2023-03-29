@@ -1,0 +1,62 @@
+<ion-header class="ion-card-header">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-align-self-center" size="8" size-lg="8" size-sm="6" size-xs="8">
+        <ion-title>{{config.language.CustomizeTheme}}</ion-title>
+      </ion-col>
+      <ion-col size="4" size-lg="4" size-xs="4">
+        <ion-icon class="close-icon" name="close-outline" (click)="dismiss()">
+        </ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content>
+  <ion-list-header class="ion-margin-vertical">
+    <ion-label>{{config.language.SelectyourSpecificColor}}</ion-label>
+  </ion-list-header>
+  <ion-card class="ion-no-margin ion-margin-horizontal">
+    <ion-grid>
+      <ion-row class="ion-text-center">
+        <ion-col size="3" *ngFor="let c of colors;" (click)="changeAppTheme(c.name)">
+          <ion-icon name="square" style.color="{{c.value}}" class="color-box">
+          </ion-icon>
+          <ion-icon *ngIf="c.name==config.appTheme" class="icon-checked" name="checkmark-outline"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <ion-list-header class="ion-margin-vertical">
+    <ion-label>{{config.language.SelectyourSpecificTheme}}</ion-label>
+  </ion-list-header>
+  <ion-card class="ion-no-margin ion-margin-horizontal">
+    <ion-grid>
+      <ion-row class="ion-text-center">
+        <ion-col size="6" *ngFor="let c of themeModes;" (click)="changeAppMode(c.name)">
+          <ion-icon name="square" style.color="{{c.value}}" class="color-box">
+          </ion-icon>
+          <ion-icon *ngIf="c.name==config.appTheme" class="icon-checked" name="checkmark-outline"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <ion-list-header class="ion-margin-vertical">
+    <ion-label>{{config.language.Select}} {{config.language.Language}}</ion-label>
+  </ion-list-header>
+
+  <ion-item lines=none>
+    <ion-segment (ionChange)="languageChange()" mode="ios" [value]="selectLang" [(ngModel)]="selectLang">
+      <ion-segment-button value="English" class="ion-padding">
+        <ion-icon name="navigate"></ion-icon>
+        <ion-label>{{config.language.English}}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Arabic" class="ion-padding">
+        <ion-icon name="navigate"></ion-icon>
+        <ion-label>{{config.language.Arabic}}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-item>
+</ion-content>

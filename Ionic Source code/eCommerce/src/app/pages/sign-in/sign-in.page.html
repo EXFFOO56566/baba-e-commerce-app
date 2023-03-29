@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [icon]="config.direction == 'ltr'?'arrow-back': 'arrow-forward'"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{config.language.Login}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-avatar>
+    <img src="assets/maleAvatar.png">
+  </ion-avatar>
+
+  <ion-item lines="none">
+    <ion-input placeholder="Name"></ion-input>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-input placeholder="User Name"></ion-input>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-input placeholder="Password"></ion-input>
+  </ion-item>
+
+  <ion-grid class="ion-padding ion-margin-horizontal">
+    <ion-row>
+      <ion-col size="0.8">
+        <ion-checkbox></ion-checkbox>
+      </ion-col>
+      <ion-col>
+        {{config.language.RememberMe}}
+      </ion-col>
+      <ion-col class="ion-text-right">
+        {{config.language.ForgotPassword}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-button class="ion-margin btn-next">{{config.language.SignIn}}</ion-button>
+  <div class="separator">
+    <div class="line" style="margin-left: 50px;"></div>
+    <h5>{{config.language.Or}}</h5>
+    <div class="line" style="margin-right: 50px;"></div>
+  </div>
+
+  <ion-item class="socil-item" lines="none">
+    <ion-icon style="color: #EA4234;" class="ion-margin-horizontal" name="logo-google"></ion-icon>
+    <ion-icon style="color: #4167B2;" class="ion-margin-horizontal" name="logo-facebook"></ion-icon>
+    <ion-icon style="color: #0E76A8;" class="ion-margin-horizontal" name="logo-linkedin"></ion-icon>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-label class="ion-text-center">
+      {{config.language.DontHaveAnAccount}} <span (click)="signUp()">{{config.language.SignUp}}</span>
+    </ion-label>
+  </ion-item>
+</ion-content>

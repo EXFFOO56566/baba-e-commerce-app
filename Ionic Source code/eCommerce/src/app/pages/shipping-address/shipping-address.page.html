@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [icon]="config.direction == 'ltr'?'arrow-back': 'arrow-forward'"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{config.language.ShippingAddress}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- For Horizontal Stepper -->
+  <div class="md-stepper-horizontal orange">
+    <div class="md-step active">
+      <div class="md-step-circle"><span>1</span></div>
+      <div class="md-step-title">{{config.language.Shipping}}</div>
+      <div class="md-step-bar-left"></div>
+      <div class="md-step-bar-right"></div>
+    </div>
+    <div class="md-step">
+      <div class="md-step-circle"><span>2</span></div>
+      <div class="md-step-title">{{config.language.ShippingMethod}}</div>
+      <div class="md-step-bar-left"></div>
+      <div class="md-step-bar-right"></div>
+    </div>
+    <div class="md-step">
+      <div class="md-step-circle"><span>3</span></div>
+      <div class="md-step-title">{{config.language.PlaceOrder}}</div>
+      <div class="md-step-bar-left"></div>
+      <div class="md-step-bar-right"></div>
+    </div>
+  </div>
+
+  <ion-item lines="none">
+    <ion-input placeholder="{{config.language.FirstName}}"></ion-input>
+    <ion-input placeholder="{{config.language.LastName}}"></ion-input>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-input placeholder="{{config.language.Address}}"></ion-input>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-input placeholder="{{config.language.City}}"></ion-input>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-input placeholder="{{config.language.Pincode}}"></ion-input>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-input placeholder="{{config.language.Email}}"></ion-input>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-card class="ion-no-margin">
+      <ion-card-header style="padding-right: 5px;" class="ion-no-padding">
+        <ion-row>
+          <ion-col size="7">
+            <p>
+              {{config.language.SelectCountry}} {{config.language.Country}}
+            </p>
+          </ion-col>
+          <ion-col size="4">
+            <p>
+              {{config.language.Australia}}
+            </p>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon color="primary"
+              [name]="config.direction == 'ltr'?'chevron-forward-outline': 'chevron-back-outline'"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-card-header>
+    </ion-card>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-card class="ion-no-margin">
+      <ion-card-header style="padding-right: 5px;" class="ion-no-padding">
+        <ion-row>
+          <ion-col size="7" class="ion-align-self-center">
+            <p>
+              {{config.language.SelectState}} {{config.language.State}}
+
+            </p>
+          </ion-col>
+          <ion-col size="4">
+            <p>
+              {{config.language.NewSouth}}
+            </p>
+          </ion-col>
+          <ion-col size="1" class="ion-align-self-center">
+            <ion-icon color="primary"
+              [name]="config.direction == 'ltr'?'chevron-forward-outline': 'chevron-back-outline'"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-card-header>
+    </ion-card>
+  </ion-item>
+
+  <ion-button class="ion-margin btn-next" (click)="showShippingMethod()">{{config.language.Next}}</ion-button>
+
+</ion-content>

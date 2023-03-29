@@ -1,0 +1,141 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+//=============================== rtl layout =========================
+
+ion-header {
+    ion-toolbar {
+        --background: var(--ion-toolbar-item-background-color);
+        ion-menu-button {
+            ion-icon {
+                color: var(--ion-text-color);
+            }
+        }
+        ion-title {
+            font-weight: 600;
+        }
+
+        .ion-searchbar-ltr {
+            --icon-color: var(--ion-text-color);
+            --border-radius: 26px;
+            color: var(--ion-text-color);
+            ::ng-deep .searchbar-input {
+                padding-inline-start: 18px;
+                color: var(--ion-text-color);
+                padding-bottom: 2px;
+                padding-top: 2px;
+            }
+            ::ng-deep .searchbar-search-icon {
+                right: 15px;
+                left: auto;
+            }
+        }
+
+        .ion-searchbar-rtl {
+            --icon-color: var(--ion-text-color);
+            --border-radius: 26px;
+            ::ng-deep .searchbar-input {
+                padding-inline-start: 18px;
+                color: var(--ion-text-color);
+            }
+        }
+    }
+}
+
+// For Modal Cart Action-Sheet
+.cartActionsheet {
+    padding-top: 75%;
+    .modal-wrapper {
+        --background: var(--ion-toolbar-item-background-color);
+        border-top: 3px solid var(--ion-color-primary);
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+    }
+}
+
+// For Modal Cart Action-Sheet
+.giveReviewActionsheet {
+    padding-top: 93%;
+    .modal-wrapper {
+        --background: var(--ion-toolbar-item-background-color);
+        border-top: 3px solid var(--ion-color-primary);
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+    }
+}
+
+.rtl {
+    direction: rtl;
+}
+
+[dir="rtl"] {
+    ion-header {
+        ion-toolbar {
+            ion-searchbar {
+                ::ng-deep .searchbar-search-icon {
+                    left: 16px;
+                    right: auto;
+                }
+            }
+        }
+    }
+}
+
+ion-content {
+    h4 {
+        font-weight: 600;
+    }
+    ion-label {
+        display: block;
+    }
+
+    .btn-next {
+        width: -webkit-fill-available;
+        --border-radius: 18px;
+    }
+
+    .slide-text {
+        text-align: inherit !important;
+    }
+
+    .selected {
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+        font-weight: 600;
+        border-color: var(--ion-color-primary);
+    }
+    .ellipses {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+}
+
+ion-fab-button {
+    height: 40px;
+    width: 40px;
+}

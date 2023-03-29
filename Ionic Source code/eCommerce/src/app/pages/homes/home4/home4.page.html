@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-menu-button slot="start">
+      <ion-icon color="primary" name="menu"></ion-icon>
+    </ion-menu-button>
+    <ion-title class="ion-text-center">
+      {{config.language.ECommerce}}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" routerLink="/search" routerDirection="forward">
+        <ion-icon color="primary" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)">
+  <!-- For Banner Component -->
+  <app-banner> </app-banner>
+
+  <!-- For Categories Sliders -->
+  <app-categories [type]="'simple'"></app-categories>
+
+  <!-- For Recommendation Product Componet Card -->
+  <ion-slides [options]="sliderConfig">
+    <ion-slide style="font-size: 14px;" *ngFor="let c of shared.allCategory" [class.selected]="selectedTab==c.name"
+      (click)="changeTab(c)">
+      <p class="ellipses">
+        {{c.name}}
+      </p>
+    </ion-slide>
+  </ion-slides>
+  <app-infinite-grid [changesToCalled]="changesToCalled" [type]="'grid'"></app-infinite-grid>
+</ion-content>
+<ion-fab class="ion-padding-start" vertical="bottom" horizontal="top">
+  <ion-fab-button (click)="appSetting()">
+    <ion-icon name="create-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-fab vertical="bottom" horizontal="end" *ngIf="scrollTopButton">
+  <ion-fab-button color="primary" (click)="scrollToTop()">
+    <ion-icon name="arrow-up"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

@@ -1,0 +1,18 @@
+ion-content {
+    ion-card {
+        box-shadow: none;
+        img {
+            border-radius: 12px;
+        }
+        ion-label {
+            color: gray;
+            font-size: var(--heading-font-size);
+        }
+        ion-card-title {
+            font-weight: 600;
+        }
+        p {
+            color: var(--ion-text-color);
+        }
+    }
+}

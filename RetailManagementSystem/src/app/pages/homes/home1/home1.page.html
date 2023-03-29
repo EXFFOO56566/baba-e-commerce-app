@@ -1,0 +1,270 @@
+<!-- For Header Component -->
+<ion-header>
+  <ion-toolbar>
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col class="ion-no-padding" size="3">
+          <ion-segment [(ngModel)]="segmentss" mode="ios" (ionChange)="segmentChanged($event)">
+            <ion-segment-button value="dashboard">
+              <ion-label color="primary" class="ion-no-margiin">Dashboard</ion-label>
+              <ion-icon color="primary" name="home"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="pos">
+              <ion-label color="primary" class="ion-no-margiin">Point Of Sale</ion-label>
+              <ion-icon color="primary" name="paper-plane"></ion-icon>
+            </ion-segment-button>
+          </ion-segment>
+        </ion-col>
+        <ion-col size="8" class="ion-align-self-center">
+          <ion-title color="primary" class="ion-text-center">
+            <ion-icon name="logo-python"></ion-icon>
+            <ion-label>
+              {{config.language.RMS}}
+            </ion-label>
+          </ion-title>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-item slot="secondary" lines="none">
+      <ion-avatar slot="start">
+        <img src="assets/maleAvatar.png" fallback="assets/maleAvatar.png" />
+      </ion-avatar>
+      <ion-label>
+        <h3 style="color:white;">Mr. Mark White</h3>
+        <p class="ion-text-center">Cashier</p>
+      </ion-label>
+    </ion-item>
+    <ion-item slot="secondary" lines="none">
+      <ion-icon style="color: white; zoom: 1.2;" name="log-out-outline"></ion-icon>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)" class="ion-padding">
+
+  <ion-grid>
+    <!-- <form  id="content"> -->
+    <ion-row>
+      <ion-col size-lg="4" size-md="4" size-sm="6" size-xs="12" size-xl="2">
+        <ion-card class="card-counter primary">
+          <ion-icon name="cart-outline"></ion-icon>
+          <span class="count-numbers">1500</span>
+          <span class="count-name">Total Sales Count</span>
+        </ion-card>
+      </ion-col>
+      <ion-col size-lg="4" size-md="4" size-sm="6" size-xs="12" size-xl="2">
+        <ion-card class="card-counter success">
+          <ion-icon name="cash-outline"></ion-icon>
+          <span class="count-numbers">$4554</span>
+          <span class="count-name">Total Cash Value</span>
+        </ion-card>
+      </ion-col>
+      <ion-col size-lg="4" size-md="4" size-sm="6" size-xs="12" size-xl="2">
+        <ion-card class="card-counter danger">
+          <ion-icon name="bag-handle-outline"></ion-icon>
+          <span class="count-numbers">$1500</span>
+          <span class="count-name">Cash Drop Value</span>
+        </ion-card>
+      </ion-col>
+      <ion-col size-lg="4" size-md="4" size-sm="6" size-xs="12" size-xl="2">
+        <ion-card class="card-counter info">
+          <ion-icon name="file-tray-full-outline"></ion-icon>
+          <span class="count-numbers">$1000
+          </span>
+          <span class="count-name">Till Opening Balance</span>
+        </ion-card>
+      </ion-col>
+      <ion-col size-lg="4" size-md="4" size-sm="6" size-xs="12" size-xl="2">
+        <ion-card class="card-counter brown">
+          <ion-icon name="file-tray-outline"></ion-icon>
+          <span class="count-numbers">$2500</span>
+          <span class="count-name">Till Closing Balance</span>
+        </ion-card>
+      </ion-col>
+      <ion-col size-lg="4" size-md="4" size-sm="6" size-xs="12" size-xl="2">
+        <ion-card class="card-counter itemcode">
+          <ion-icon name="scan-circle-outline"></ion-icon>
+          <span class="count-numbers">$500</span>
+          <span class="count-name">Sale Return Value</span>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <!-- -------------------------------------------- For Second Row --------------------------------------- -->
+    <ion-row>
+      <!-- ----------------------------------------- For Left-Side Column ----------------------------------- -->
+      <ion-col size-md="12" size-lg="12" size-xl="8" class="ion-padding-top">
+        <ion-card class="sale-prog-report ion-no-margin border-top-blue-new">
+          <ion-row>
+            <ion-col size-xl="6" size-sm="12" size-xs="12" class="ion-align-self-center">
+              <p class="ion-no-margin">
+                Sales Progress Report
+              </p>
+            </ion-col>
+            <ion-col size-xl="6" size-sm="12" size-xs="12">
+              <ion-segment (ionChange)="segmentChange($event)" [(ngModel)]="segments">
+                <ion-segment-button class="ion-margin" [value]="config.language.Today">
+                  {{config.language.Today}}
+                </ion-segment-button>
+                <ion-segment-button class="ion-margin" [value]="config.language.ThisMonth">
+                  {{config.language.ThisMonth}}
+                </ion-segment-button>
+                <ion-segment-button class="ion-margin" [value]="config.language.ThisYear">
+                  {{config.language.ThisYear}}
+                </ion-segment-button>
+              </ion-segment>
+            </ion-col>
+            <ion-col size="12">
+              <dx-chart #DxChartComponent id="chart" palette="vintage" [dataSource]="data"
+                resolveLabelOverlapping="stack">
+                <dxo-title text="Today's Hourly Sales">
+                  <dxo-font color="black" size="16" weight="600">
+                  </dxo-font>
+                </dxo-title>
+                <dxi-series valueField="saleValue" axis="frequency" name="Sale Value" color="#ffaa66"></dxi-series>
+                <dxi-series type="spline" axis="percentage" valueField="saleCount" color="#6b71c3" name="Sale Count">
+                </dxi-series>
+                <dxo-common-series-settings [barWidth]="35" argumentField="day" type="bar">
+                </dxo-common-series-settings>
+                <dxi-value-axis name="frequency" position="left">
+                  <dxo-grid [visible]="false"></dxo-grid>
+                  <dxo-title text="Sale Value"></dxo-title>
+                </dxi-value-axis>
+                <dxi-value-axis name="percentage" position="right" [showZero]="true" [tickInterval]="20"
+                  [valueMarginsEnabled]="false">
+                  <dxo-title text="Sale Count"></dxo-title>
+                </dxi-value-axis>
+                <dxo-argument-axis title="Hours">
+                </dxo-argument-axis>
+                <dxo-legend verticalAlignment="bottom" horizontalAlignment="center">
+                </dxo-legend>
+                <dxo-export [enabled]="true"></dxo-export>
+                <dxo-tooltip [enabled]="true" [shared]="true" [customizeTooltip]="customizeTooltips">
+                  <dxo-format type="largeNumber" [precision]="1"></dxo-format>
+                </dxo-tooltip>
+                <dxo-size [height]="420">
+                </dxo-size>
+              </dx-chart>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+      <!-- -------------------------------------------------- Right-Side Column ------------------------------------ -->
+      <ion-col size-md="8" size-lg="8" size-xl="2">
+        <ion-row>
+          <ion-col size-lg="12" size-md="12" size-sm="12" size-xs="12" size-xl="12">
+            <ion-card class="sale-prog-report ion-no-margin border-top-blue-new">
+              <dx-pie-chart id="pie" type="doughnut" palette="Soft Pastel" [dataSource]="topCategory"
+                resolveLabelOverlapping="shift">
+                <dxo-title text="Top Selling Divisions %">
+                  <dxo-font color="black" size="16" weight="600">
+                  </dxo-font>
+                </dxo-title>
+                <dxo-export [enabled]="true"></dxo-export>
+                <dxo-legend horizontalAlignment="center" verticalAlignment="bottom"></dxo-legend>
+                <dxi-series argumentField="category" valueField="percent">
+                  <dxo-small-values-grouping mode="topN" [topCount]="3"></dxo-small-values-grouping>
+                  <dxo-label [visible]="true" format="fixedPoint">
+                    <dxo-connector [visible]="true" [width]="1"></dxo-connector>
+                  </dxo-label>
+                </dxi-series>
+                <dxo-size [height]="280">
+                </dxo-size>
+              </dx-pie-chart>
+            </ion-card>
+          </ion-col>
+          <ion-col size-lg="12" size-md="12" size-sm="12" size-xs="12" size-xl="12">
+            <ion-card class="ion-no-margin">
+              <ion-card-header class="ion-no-padding">
+                <ion-card-title class="ion-card-title ion-padding">
+                  Cashier Ranking
+                </ion-card-title>
+              </ion-card-header>
+              <dx-circular-gauge id="triangleNeedle">
+                <dxo-value-indicator type="triangleNeedle" color="#ff8c00">
+                </dxo-value-indicator>
+                <dxo-size [height]="160">
+                </dxo-size>
+                <dxo-scale [startValue]="0" [endValue]="100" [tickInterval]="20">
+                </dxo-scale>
+                <dxo-range-container>
+                  <dxi-range [startValue]="0" [endValue]="40" color="#FD8B06"></dxi-range>
+                  <dxi-range [startValue]="40" [endValue]="80" color="#4FC3F8"></dxi-range>
+                  <dxi-range [startValue]="80" [endValue]="120" color="#228B22"></dxi-range>
+                  <dxo-label></dxo-label>
+                </dxo-range-container>
+                <dxo-tooltip [enabled]="true" location="edge">
+                </dxo-tooltip>
+              </dx-circular-gauge>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+
+      <ion-col size-md="4" size-lg="4" size-xl="2">
+        <ion-row>
+          <ion-col size-lg="12" size-md="12" size-sm="12" size-xs="12" size-xl="12">
+            <ion-card class="top-division ion-no-margin">
+              <ion-card-header class="ion-no-padding">
+                <ion-card-title class="ion-card-title ion-padding">
+                  Top Selling Items
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content class="ion-no-padding">
+                <ion-card class="top-item-card">
+                  <ion-item lines="none">
+                    <ion-thumbnail class="top-thumbnail ion-margin" slot="start">
+                      <img src="assets/cola.jpg">
+                    </ion-thumbnail>
+                    <ion-label>
+                      <h6 class="toper-item">Coca-Cola 250 ML</h6>
+                      <p class="price-del">$250 <del>$500</del></p>
+                      <p>
+                        <ion-icon color="primary" name="star"></ion-icon>
+                        <ion-icon color="primary" name="star"></ion-icon>
+                        <ion-icon color="primary" name="star"></ion-icon>
+                        <ion-icon color="primary" name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                      </p>
+                    </ion-label>
+                  </ion-item>
+                </ion-card>
+                <ion-card *ngFor="let item of topItems" class="top-item-card-new">
+                  <ion-item>
+                    <ion-thumbnail class="ion-margin" slot="start">
+                      <img [src]="item.img">
+                    </ion-thumbnail>
+                    <ion-label class="top-new">
+                      <h6>{{item.name}}</h6>
+                      <p>$250 <del>$500</del></p>
+                      <p>
+                        <ion-icon color="primary" name="star"></ion-icon>
+                        <ion-icon color="primary" name="star"></ion-icon>
+                        <ion-icon color="primary" name="star"></ion-icon>
+                        <ion-icon color="primary" name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                      </p>
+                    </ion-label>
+                  </ion-item>
+                </ion-card>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <!-- </form> -->
+  </ion-grid>
+
+</ion-content>
+
+<ion-fab class="ion-padding-start" vertical="bottom" horizontal="top">
+  <ion-fab-button (click)="appSetting()">
+    <ion-icon name="create-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<ion-fab vertical="bottom" horizontal="end" *ngIf="scrollTopButton">
+  <ion-fab-button color="primary" (click)="scrollToTop()">
+    <ion-icon name="arrow-up"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

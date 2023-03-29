@@ -1,0 +1,18 @@
+ion-content {
+    ion-input {
+        font-size: 13px;
+        --padding-start: 0;
+        --background: var(--ion-toolbar-item-background-color);
+        border-radius: 12px;
+        ::ng-deep .native-input {
+            --padding-start: 10px !important;
+        }
+    }
+    ion-textarea {
+        font-size: 13px;
+        --background: var(--ion-toolbar-item-background-color);
+        border-radius: 12px;
+        min-height: 120px;
+        --padding-start: 10px;
+    }
+}

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [icon]="config.direction == 'ltr'?'arrow-back': 'arrow-forward'"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{config.language.Shop}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="sort()">
+        <ion-icon name="repeat-outline"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" (click)="filter()">
+        <ion-icon name="options-outline"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" (click)="gridChange()">
+        <ion-icon [name]="isGrid ? 'tablet-landscape-outline' : 'grid-outline'"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-slides [options]="sliderConfig">
+    <ion-slide style="font-size: 14px; color: var(--ion-text-color);" *ngFor="let c of shared.allCategory"
+      [class.selected]="selectedTab==c.name" (click)="changeTab(c)">
+      {{c.name}}
+    </ion-slide>
+  </ion-slides>
+</ion-header>
+
+<ion-content>
+  <ion-card class="ion-no-margin">
+    <ion-card-header>
+    </ion-card-header>
+    <ion-card-content class="ion-padding">
+      <app-infinite-grid [changesToCalled]="changesToCalled" [shop]="true" [type]="isGrid ? 'grid' :'list'">
+      </app-infinite-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      {{config.language.ECommerce}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)">
+  <!-- For Categories Sliders -->
+  <app-categories [type]="'roundImageBorder'"></app-categories>
+
+  <ion-card class="ion-no-margin">
+    <ion-slides [options]="sliderConfig">
+      <ion-slide *ngFor="let c of shared.allCategory" [class.selected]="selectedTab==c.name" (click)="changeTab(c)">
+        {{c.name}}
+      </ion-slide>
+    </ion-slides>
+    <ion-card-content class="ion-padding">
+      <app-infinite-grid [changesToCalled]="changesToCalled" [shop]="true" [type]="'grid'">
+      </app-infinite-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-fab class="ion-padding-start" vertical="bottom" horizontal="top">
+  <ion-fab-button (click)="appSetting()">
+    <ion-icon name="create-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-fab vertical="bottom" horizontal="end" *ngIf="scrollTopButton">
+  <ion-fab-button color="primary" (click)="scrollToTop()">
+    <ion-icon name="arrow-up"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

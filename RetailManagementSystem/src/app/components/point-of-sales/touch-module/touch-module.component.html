@@ -1,0 +1,48 @@
+<!-- ----------------------------- For Touch ------------------------------------ -->
+<form [formGroup]="form">
+  <ion-row style="cursor: pointer;" *ngIf="form.value.mode == 'touch'">
+    <ion-col size="10.5">
+      <ion-toolbar>
+        <ion-slides [scrollbar]="true" class="swiper-container" [options]="sliderConfig">
+          <ion-slide class="border" *ngFor="let c of categories">
+            <ion-row>
+              <ion-col class="ion-no-padding" size="12">
+                <ion-icon style="zoom: 1.4;" color="primary" [name]="c.icon"></ion-icon>
+              </ion-col>
+              <ion-col style="font-weight: 600;" class="ion-no-padding" size="12">
+                {{c.name}}
+              </ion-col>
+            </ion-row>
+          </ion-slide>
+        </ion-slides>
+      </ion-toolbar>
+    </ion-col>
+    <ion-col class="ion-text-center" size="1.5">
+      <ion-buttons>
+        <ion-button class="ion-text-center" fill="clear">
+          {{config.language.card}}
+          <!-- <ion-icon name="list-outline"></ion-icon> -->
+          <ion-select class="ion-padding" value="{{config.card}}" (ionChange)="selectCardStyle($event)"
+            interface="popover">
+            <ion-select-option value="1">One</ion-select-option>
+            <ion-select-option value="2">Two</ion-select-option>
+            <ion-select-option value="3">Three</ion-select-option>
+            <ion-select-option value="4">Four</ion-select-option>
+            <ion-select-option value="5">Five</ion-select-option>
+            <ion-select-option value="6">Six</ion-select-option>
+            <ion-select-option value="7">Seven</ion-select-option>
+            <ion-select-option value="8">Eight</ion-select-option>
+            <ion-select-option value="9">Nine</ion-select-option>
+            <ion-select-option value="10">Ten</ion-select-option>
+          </ion-select>
+        </ion-button>
+      </ion-buttons>
+      <ion-icon class="icon-zoom" (click)="sort()" name="repeat-outline"></ion-icon>
+      <ion-icon class="icon-zoom" (click)="filter()" name="options-outline"></ion-icon>
+      <ion-icon class="icon-zoom" (click)="gridChange()" name="grid-outline"></ion-icon>
+      <ion-icon class="icon-zoom" (click)="listChange()" name="tablet-landscape-outline"></ion-icon>
+    </ion-col>
+  </ion-row>
+
+  <app-infinite-grid [form]="form" [changesToCalled]="changesToCalled" [type]="'isGrid'"></app-infinite-grid>
+</form>

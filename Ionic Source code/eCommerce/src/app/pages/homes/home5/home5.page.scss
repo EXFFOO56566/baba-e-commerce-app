@@ -1,0 +1,106 @@
+ion-header {
+    ion-toolbar {
+        --background: var(--ion-background-color) !important;
+        ion-buttons {
+            ion-icon {
+                zoom: 1.5;
+            }
+        }
+    }
+}
+.header-md::after {
+    display: none !important;
+}
+ion-content {
+    .parent-card {
+        box-shadow: none;
+        background: var(--ion-color-primary);
+        border-bottom-left-radius: 26px;
+        border-bottom-right-radius: 26px;
+        ion-card-header {
+            background: var(--ion-background-color);
+            border-bottom-left-radius: 26px;
+            border-bottom-right-radius: 26px;
+            ion-card {
+                box-shadow: none;
+                ion-icon {
+                    zoom: 1.6;
+                    color: var(--ion-text-color);
+                }
+            }
+        }
+
+        ion-card-content {
+            ion-label {
+                color: var(--ion-text-color);
+                font-size: 18px;
+                font-weight: 600;
+            }
+            .ion-searchbar-ltr {
+                --icon-color: var(--ion-color-primary);
+                --border-radius: 26px;
+                ::ng-deep .searchbar-input {
+                    padding-inline-start: 18px;
+                    font-size: 14px;
+                    padding-top: 0;
+                    padding-bottom: 0;
+                    color: var(--ion-text-color);
+                }
+                ::ng-deep .searchbar-search-icon {
+                    right: 15px;
+                    left: auto;
+                    top: 6px;
+                }
+            }
+            .ion-searchbar-rtl {
+                --icon-color: var(--ion-text-color);
+                --border-radius: 26px;
+                ::ng-deep .searchbar-input {
+                    padding-inline-start: 18px;
+                    font-size: 14px;
+                    padding-top: 0;
+                    padding-bottom: 0;
+                    color: var(--ion-text-color);
+                }
+                ::ng-deep .searchbar-search-icon {
+                    top: 5px !important;
+                }
+            }
+        }
+    }
+
+    // .wishlist-lbl {
+    //     color: var(--ion-text-color);
+    // }
+
+    // .wishlist-icon {
+    //     vertical-align: middle;
+    // }
+
+    ion-card:nth-child(3),
+    ion-card:nth-child(4),
+    ion-card:nth-child(5),
+    ion-card:nth-child(6) {
+        box-shadow: none;
+        ion-card-header {
+            ion-row {
+                ion-col:nth-child(1) {
+                    ion-label {
+                        font-weight: 600;
+                        color: var(--ion-text-color);
+                    }
+                }
+                ion-col:nth-child(2) {
+                    ion-icon {
+                        vertical-align: middle;
+                    }
+                    ion-label {
+                        font-weight: 600;
+                        font-size: var(--price-font-size);
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}

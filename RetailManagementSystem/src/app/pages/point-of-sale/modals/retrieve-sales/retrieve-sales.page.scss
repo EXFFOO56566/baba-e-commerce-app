@@ -1,0 +1,60 @@
+table {
+    cursor: pointer;
+    width: 100%;
+    font-size: 14px !important;
+    font-weight: 500;
+    width: 100%;
+    thead {
+        background: gainsboro;
+        tr {
+            th {
+                padding: 0;
+                text-align: center;
+            }
+        }
+    }
+    tr {
+        border: 0.5px solid;
+        td {
+            padding: 5px;
+        }
+    }
+}
+
+.no-category-found-content {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+    ion-row {
+        ion-col {
+            ion-icon {
+                zoom: 3.5;
+            }
+            h4 {
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.ion-card-header {
+    background: var(--ion-color-primary);
+    color: #fff;
+    padding: 3px 0px 2px;
+
+    ion-title {
+        font-size: 18px;
+    }
+
+    .close-icon {
+        cursor: pointer;
+        float: right;
+        zoom: 1.9;
+        color: white;
+        margin-right: 4px;
+    }
+}

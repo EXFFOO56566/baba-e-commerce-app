@@ -1,0 +1,49 @@
+ion-header {
+    ion-toolbar {
+        ion-title {
+            font-size: 16px;
+        }
+    }
+}
+
+ion-content {
+    ion-segment {
+        ion-segment-button {
+            text-transform: capitalize;
+            font-weight: 600;
+            min-height: 0px !important;
+            height: 30px;
+            border-radius: 16px;
+            font-size: 11.5px;
+            align-items: center;
+            background: var(--ion-toolbar-item-background-color);
+            --color-checked: none;
+        }
+        .segment-button-checked {
+            background: var(--ion-color-primary) !important;
+            color: white;
+        }
+    }
+
+    ion-card {
+        box-shadow: none;
+    }
+
+    ion-card {
+        box-shadow: none;
+        ion-slide {
+            padding-bottom: 5px;
+            font-size: 14px;
+            color: var(--ion-text-color);
+        }
+    }
+
+    .may-like-card {
+        box-shadow: none;
+        background: none;
+        ion-label {
+            color: var(--ion-text-color);
+            font-weight: 600;
+        }
+    }
+}

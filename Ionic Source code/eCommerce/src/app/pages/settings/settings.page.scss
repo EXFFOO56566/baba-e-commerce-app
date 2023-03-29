@@ -1,0 +1,47 @@
+ion-content {
+    .label-setting {
+        padding: 10px;
+        position: absolute;
+        color: var(--ion-color-primary-contrast);
+        top: 7%;
+        font-size: 21px;
+    }
+    ion-item {
+        --padding-start: 0;
+        --inner-padding-end: 0;
+        ion-label:nth-child(2) {
+            padding: 4px;
+            font-size: 14px;
+            p {
+                font-size: 12px;
+                color: lightgray;
+            }
+        }
+    }
+
+    .label-general {
+        font-weight: 600;
+    }
+    ion-item {
+        ion-grid {
+            ion-row {
+                ion-col {
+                    ion-label {
+                        display: inline-flex;
+                        ion-icon {
+                            zoom: 1.2;
+                        }
+                        p {
+                            margin-left: 10px;
+                            margin-right: 10px;
+                            color: var(--ion-text-color);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .togle {
+        padding: 6px;
+    }
+}

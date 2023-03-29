@@ -1,0 +1,72 @@
+<ion-app [class.rtl]="config.direction == 'rtl'" [class.default-theme]="config.appTheme=='default'"
+  [class.default1-theme]="config.appTheme=='default1'" [class.default2-theme]="config.appTheme=='default2'"
+  [class.default3-theme]="config.appTheme=='default3'" [class.default4-theme]="config.appTheme=='default4'"
+  [class.default5-theme]="config.appTheme=='default5'" [class.default6-theme]="config.appTheme=='default6'"
+  [class.default7-theme]="config.appTheme=='default7'" [class.default8-theme]="config.appTheme=='default8'"
+  [class.default9-theme]="config.appTheme=='default9'" [class.default10-theme]="config.appTheme=='default10'"
+  [class.default11-theme]="config.appTheme=='default11'" [class.default12-theme]="config.appTheme=='default12'"
+  [class.default13-theme]="config.appTheme=='default13'" [class.default14-theme]="config.appTheme=='default14'"
+  [class.default15-theme]="config.appTheme=='default15'" [class.dark-theme]="config.darkMode=='true'"
+  [class.light-theme]="config.darkMode=='false'">
+  <ion-split-pane contentId="main-content">
+    <ion-menu [side]="config.direction == 'ltr' ? 'start' : 'end'" contentId="main-content" type="overlay">
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-title class="ion-text-center">
+            {{config.language.ECommerce}}
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content>
+        <ion-list class="ion-no-padding">
+          <ion-item lines="none" *ngFor="let p of appPages" class="ion-no-padding" [class.bg-items]="p.items">
+            <ion-grid class="ion-no-padding">
+              <!-- For Child Items Not Exists -->
+              <ion-row class="ion-no-padding" (click)="openPage(p.url)" *ngIf="!p.items">
+                <ion-col *ngIf="p.icon && p.url" class="ion-align-self-center ion-text-center" size="2">
+                  <ion-icon color="primary" name="{{p.icon}}"></ion-icon>
+                </ion-col>
+                <ion-col class="ion-align-self-center" size="8">
+                  <p class="ion-padding-start ion-margin-start" [class.active]="!p.icon && !p.url">
+                    {{p.title}}
+                  </p>
+                </ion-col>
+              </ion-row>
+              <!-- For Child Items Exists -->
+              <ion-row class="ion-no-padding" *ngIf="p.items" (click)="expandItem(p)">
+                <ion-col size="6">
+                  <p class="ion-padding-start ion-margin-start">
+                    {{p.title}}
+                  </p>
+                </ion-col>
+                <ion-col class="ion-align-self-center ion-padding" size="6" [class.ltrAlign]="config.direction == 'ltr'"
+                  [class.rtlAlign]="config.direction == 'rtl'">
+                  <ion-icon [ngStyle]="{float: config.direction == 'ltr' ? 'right' : 'left' }" class="zoom-icon"
+                    color="primary" [name]="config.direction == 'ltr'?'chevron-forward-outline': 'chevron-back-outline'"
+                    *ngIf="!p.expanded"></ion-icon>
+                  <ion-icon [ngStyle]="{float: config.direction == 'ltr' ? 'right' : 'left' }" class="zoom-icon"
+                    color="primary" name="chevron-down-outline" *ngIf="p.expanded"></ion-icon>
+                </ion-col>
+              </ion-row>
+              <!-- For Expandable Component -->
+              <app-expandable expandHeight="700px" *ngIf="p.items" [expanded]="p.expanded" class="ion-no-padding">
+                <ion-item class="item-inner-list" lines="none" *ngFor="let list of p.items;"
+                  (click)="openPage(list.url)">
+                  <ion-grid class="bg-grid">
+                    <ion-row>
+                      <ion-col class="ion-align-self-center">
+                        <p class="ion-padding-start ion-margin-start">{{list.title}}</p>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-item>
+              </app-expandable>
+            </ion-grid>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

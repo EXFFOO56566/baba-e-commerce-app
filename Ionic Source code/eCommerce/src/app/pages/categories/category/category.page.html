@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [icon]="config.direction == 'ltr'?'arrow-back': 'arrow-forward'"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{config.language.Category}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear">
+        <!-- <ion-icon name="list-outline"></ion-icon> -->
+        <ion-select (ionChange)="selectCatStyle($event)" interface="popover">
+          <ion-select-option value="1">{{config.language.Category}}-1</ion-select-option>
+          <ion-select-option value="2">{{config.language.Category}}-2</ion-select-option>
+          <ion-select-option value="3">{{config.language.Category}}-3</ion-select-option>
+          <ion-select-option value="4">{{config.language.Category}}-4</ion-select-option>
+          <ion-select-option value="5">{{config.language.Category}}-5</ion-select-option>
+          <ion-select-option value="6">{{config.language.Category}}-6</ion-select-option>
+          <ion-select-option value="7">{{config.language.Category}}-7</ion-select-option>
+          <ion-select-option value="8">{{config.language.Category}}-8</ion-select-option>
+          <ion-select-option value="9">{{config.language.Category}}-9</ion-select-option>
+          <ion-select-option value="10">{{config.language.Category}}-10</ion-select-option>
+        </ion-select>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [class.scroll-y-hide]="style == 9">
+  <!-- <ion-card *ngIf="showOption">
+    1 2 3 4 5
+  </ion-card> -->
+  <div *ngIf="style != 8">
+    <app-category-styles [changesToCalled]="changesToCalled" [style]='style'></app-category-styles>
+
+  </div>
+  <div *ngIf="style == 8">
+    <ion-list class="ion-no-padding ion-margin-top">
+      <ion-item lines="none" *ngFor="let p of appPages" class="ion-no-padding" [class.bg-items]="p.items">
+        <ion-grid class="ion-no-padding">
+          <!-- For Child Items Not Exists -->
+          <ion-row class="ion-no-padding" (click)="openPage(p.url)" *ngIf="!p.items">
+            <ion-col *ngIf="p.icon && p.url" class="ion-align-self-center ion-text-center" size="2">
+              <ion-icon color="primary" name="{{p.icon}}"></ion-icon>
+            </ion-col>
+            <ion-col class="ion-align-self-center" size="8">
+              <p class="ion-padding-start ion-margin-start" [class.active]="!p.icon && !p.url">
+                {{p.title}}
+              </p>
+            </ion-col>
+          </ion-row>
+          <!-- For Child Items Exists -->
+          <ion-row class="ion-no-padding" *ngIf="p.items" (click)="expandItem(p)">
+            <ion-col size="6">
+              <p class="ion-padding-start ion-margin-start">
+                {{p.title}}
+              </p>
+            </ion-col>
+            <ion-col class="ion-align-self-center ion-padding" size="6" [class.ltrAlign]="config.direction == 'ltr'"
+              [class.rtlAlign]="config.direction == 'rtl'">
+              <ion-icon [ngStyle]="{float: config.direction == 'ltr' ? 'right' : 'left' }" class="zoom-icon"
+                color="primary" [name]="config.direction == 'ltr'?'chevron-forward-outline': 'chevron-back-outline'"
+                *ngIf="!p.expanded"></ion-icon>
+              <ion-icon [ngStyle]="{float: config.direction == 'ltr' ? 'right' : 'left' }" class="zoom-icon"
+                color="primary" name="chevron-down-outline" *ngIf="p.expanded"></ion-icon>
+            </ion-col>
+          </ion-row>
+          <!-- For Expandable Component -->
+          <app-expandable expandHeight="700px" *ngIf="p.items" [expanded]="p.expanded" class="ion-no-padding">
+            <ion-item class="item-inner-list" lines="none" *ngFor="let list of p.items;" (click)="openPage(list.url)">
+              <ion-grid class="bg-grid">
+                <ion-row>
+                  <ion-col class="ion-align-self-center">
+                    <p class="ion-padding-start ion-margin-start">{{list.title}}</p>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-item>
+          </app-expandable>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

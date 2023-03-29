@@ -1,0 +1,23 @@
+<ion-grid *ngIf="type=='grid'" class="ion-no-padding">
+  <ion-row class="ion-no-padding">
+    <ion-col *ngFor="let p of products" size="6" class="ion-no-padding">
+      <ion-card [ngClass]="{'card-3': config.card == 3}">
+        <app-card [data]="p" [type]="config.card" [wishlist]="wishlist"></app-card>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-list *ngIf="type=='list'" class="ion-no-padding">
+  <ion-row class="ion-no-padding">
+    <ion-col *ngFor="let p of products" size="12" class="ion-no-padding">
+      <ion-card class="ion-no-margin ion-margin-bottom">
+        <app-card [data]="p" [type]="'listing'"></app-card>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-list>
+<!-- infinite scroll -->
+<ion-infinite-scroll threshold="10px" (ionInfinite)="getProducts($event)">
+  <ion-infinite-scroll-content></ion-infinite-scroll-content>
+</ion-infinite-scroll>

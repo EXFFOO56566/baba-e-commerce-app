@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [icon]="config.direction == 'ltr'?'arrow-back': 'arrow-forward'"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{config.language.Address}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card (click)="showAddAddressDetails()" *ngFor="let dat of [1,2]" class="ion-margin">
+    <ion-card-content class="ion-padding">
+      <ion-card-subtitle>
+        {{config.language['Dr. Mark White']}}
+      </ion-card-subtitle>
+      <ion-card-subtitle>
+        {{config.language['3874 Cedarstone Drive, Mansfield OH']}}
+      </ion-card-subtitle>
+      <ion-card-subtitle>
+        922323
+      </ion-card-subtitle>
+      <ion-card-subtitle>
+        kzee42cf@temporary-mail.net
+      </ion-card-subtitle>
+      <ion-card-subtitle>
+        419-512-2854
+      </ion-card-subtitle>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-row>
+    <ion-col class="ion-text-center">
+      <ion-label (click)="showAddAddressDetails()">
+        <ion-icon name="add"></ion-icon>{{config.language.AddAddress}}
+      </ion-label>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

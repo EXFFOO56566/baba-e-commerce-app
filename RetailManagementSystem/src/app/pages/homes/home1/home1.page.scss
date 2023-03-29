@@ -1,0 +1,281 @@
+ion-header {
+    ion-toolbar {
+        padding: 0;
+        --background: linear-gradient(
+            90deg,
+            var(--ion-color-primary),
+            var(--ion-color-primary-shade),
+            var(--ion-color-primary-tint)
+        );
+        // background: linear-gradient(90deg, var(--ion-color-primary), black 110%);
+        color: white;
+        ion-title {
+            ion-label {
+                color: white;
+                font-family: monospace;
+                font-size: 18px;
+            }
+            ion-icon {
+                color: white;
+                vertical-align: middle;
+                zoom: 1.2;
+            }
+        }
+        ion-item {
+            ion-label {
+                h3 {
+                    line-height: 14px !important;
+                    margin-top: 9px;
+                    font-size: var(--heading-font-size) !important;
+                }
+                p {
+                    font-size: var(--sub-heading-font-size);
+                    color: white;
+                }
+            }
+        }
+
+        ion-item {
+            --background: transparent;
+        }
+
+        ion-avatar {
+            width: 38px;
+            height: 38px;
+        }
+        ion-grid {
+            ion-row {
+                ion-col {
+                    ion-segment {
+                        height: 50px;
+                        width: 85%;
+                        background: #eeeeee;
+                        margin-left: 10px;
+                        ion-segment-button {
+                            // color: var(--ion-color-primary);
+                            ion-icon {
+                                zoom: 0.8;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+ion-content {
+    .card-counter {
+        // box-shadow: 2px 2px 10px #dadada;
+        margin: 3px;
+        padding: 25px 10px;
+        height: 100px;
+        border-radius: 12px;
+        transition: 0.3s linear all;
+        ion-icon {
+            zoom: 3.3;
+        }
+    }
+
+    .card-counter.primary {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .card-counter.danger {
+        background-color: darkorange;
+        color: #fff;
+    }
+
+    .card-counter.success {
+        background-color: #66bb6a;
+        color: #fff;
+    }
+
+    .card-counter.info {
+        background-color: #26c6da;
+        color: #fff;
+    }
+
+    .card-counter.itemcode {
+        background-color: #2980b9;
+        color: #fff;
+    }
+    .card-counter.Manual {
+        background-color: #8e44ad;
+        color: #fff;
+    }
+    .card-counter.brown {
+        background-color: #7f8c8d;
+        color: #fff;
+    }
+    .card-counter i {
+        font-size: 3em;
+        opacity: 0.2;
+    }
+
+    .card-counter .count-numbers {
+        position: absolute;
+        right: 35px;
+        top: 20px;
+        font-size: 25px;
+        display: block;
+    }
+
+    .card-counter .count-name {
+        position: absolute;
+        right: 35px;
+        bottom: 12px;
+        font-style: italic;
+        text-transform: capitalize;
+        display: block;
+        font-size: 14px;
+    }
+
+    .card-chart {
+        background-color: white;
+        box-shadow: 0 4px 10px #0000000f;
+        margin: 2px;
+        border-radius: 8px;
+    }
+
+    .border-top-orange {
+        border-top: 3px solid darkorange;
+    }
+
+    .lbl-shop {
+        text-align: center;
+        font-weight: 600;
+        font-size: 16px;
+    }
+
+    .border-top-orange-new {
+        border-top: 3px solid darkorange;
+    }
+
+    .border-top-blue-new {
+        border-top: 3px solid #2700ff;
+    }
+
+    .separator {
+        display: flex;
+        align-items: center;
+    }
+
+    .separator .line {
+        height: 1px;
+        flex: 1;
+        background-color: darkorange;
+    }
+
+    .separator h5 {
+        padding: 0 2rem;
+        color: darkorange;
+        font-weight: 500;
+    }
+
+    .sale-prog-report {
+        height: 99%;
+        ion-row {
+            ion-col {
+                p {
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: var(--ion-top-rank-text-color);
+                    padding-left: 20px;
+                    padding-right: 20px;
+                }
+                ion-segment {
+                    ion-segment-button {
+                        text-transform: capitalize;
+                        font-weight: 600;
+                        min-height: 0px !important;
+                        height: 33px;
+                        border-radius: 16px;
+                        font-size: 11.5px;
+                        align-items: center;
+                        background: var(--ion-toolbar-item-background-color);
+                        --color-checked: none;
+                        margin: 2px;
+                    }
+                    .segment-button-checked {
+                        background: var(--ion-color-primary) !important;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+
+    .top-division {
+        height: 101.5%;
+    }
+
+    .ion-card-title {
+        padding: 9 px;
+        font-size: 15px;
+        color: white;
+        font-weight: 600;
+        text-align: center;
+        background: var(--ion-color-primary);
+    }
+
+    .top-item-card {
+        height: 100%;
+        border-radius: 12px;
+        ion-item {
+            --padding-start: 0;
+            --padding-end: 0;
+            --inner-padding-end: 0;
+            ion-label {
+                font-size: 12px;
+            }
+        }
+    }
+
+    .top-thumbnail {
+        img {
+            height: 120%;
+        }
+    }
+
+    .price-del {
+        font-size: 13px !important;
+        color: var(--ion-color-primary);
+        font-weight: 600;
+        del {
+            color: var(--ion-text-color);
+            font-size: var(--sub-heading-font-size);
+        }
+    }
+
+    .toper-item {
+        font-size: 14px !important;
+        font-weight: 600;
+    }
+
+    .top-item-card-new {
+        box-shadow: none;
+        margin: 0;
+        ion-item {
+            --padding-start: 0;
+            --padding-end: 0;
+            --inner-padding-end: 0;
+            ion-thumbnail {
+                height: 100%;
+            }
+            h6 {
+                font-size: 13px !important;
+            }
+            p {
+                font-size: 13px !important;
+                color: var(--ion-color-primary);
+                font-weight: 600;
+                del {
+                    color: var(--ion-text-color);
+                    font-size: var(--sub-heading-font-size);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [icon]="config.direction == 'ltr'?'arrow-back': 'arrow-forward'"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{config.language.ProductDescription}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h4 class="ion-no-margin ion-padding">
+    {{config.language.Freuqency}}
+  </h4>
+  <ion-label class="ion-padding-horizontal">
+    SIM1: GSM 850 / 900 / 1800 / 1900
+  </ion-label>
+
+  <h4 class="ion-no-margin ion-padding">
+    {{config.language.Processor}}
+  </h4>
+  <ion-label class="ion-padding-horizontal">
+    CPU Octa-core (1 x 3.09 GHz Kryo 585 & 3x2.40 GHz Kryo 585 + 4 x 1.80 GHz Kryo 585)
+  </ion-label>
+
+  <h4 class="ion-no-margin ion-padding">
+    {{config.language.Display}}
+  </h4>
+  <ion-label class="ion-padding-horizontal">
+    {{config.language.GlobalText}}</ion-label>
+</ion-content>

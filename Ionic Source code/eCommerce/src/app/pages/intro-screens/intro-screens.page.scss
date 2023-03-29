@@ -1,0 +1,46 @@
+ion-content {
+    .top-margin {
+        margin-top: 20%;
+    }
+    ion-slides {
+        ::ng-deep .swiper-pagination {
+            bottom: 0 !important;
+        }
+        ::ng-deep.swiper-pagination-bullet {
+            opacity: 0.9 !important;
+        }
+    }
+    ion-grid {
+        ion-row {
+            margin-right: 10px;
+            ion-col {
+                ion-img {
+                    height: 271px;
+                }
+                ion-label {
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+
+                .desc {
+                    font-size: 12px !important;
+                    font-weight: 500 !important;
+                    color: var(--ion-text-color);
+                }
+                ion-icon {
+                    zoom: 2.5;
+                }
+            }
+        }
+    }
+    .button-ltr {
+        position: absolute;
+        right: 10px;
+        color: var(--ion-text-color);
+    }
+    .button-rtl {
+        position: absolute;
+        left: 10px;
+        color: var(--ion-text-color);
+    }
+}

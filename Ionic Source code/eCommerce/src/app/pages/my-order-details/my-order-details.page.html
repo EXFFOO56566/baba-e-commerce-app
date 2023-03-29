@@ -1,0 +1,140 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [icon]="config.direction == 'ltr'?'arrow-back': 'arrow-forward'"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{id}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- For Horizontal Stepper -->
+  <div class="md-stepper-horizontal orange">
+    <div class="md-step active">
+      <div class="md-step-circle"><span>1</span></div>
+      <div class="md-step-title">{{config.language.Shipping}}</div>
+      <div class="md-step-bar-left"></div>
+      <div class="md-step-bar-right"></div>
+    </div>
+    <div class="md-step">
+      <div class="md-step-circle"><span>2</span></div>
+      <div class="md-step-title">{{config.language.ShippingMethod}}</div>
+      <div class="md-step-bar-left"></div>
+      <div class="md-step-bar-right"></div>
+    </div>
+    <div class="md-step">
+      <div class="md-step-circle"><span>3</span></div>
+      <div class="md-step-title">{{config.language.PlaceOrder}}</div>
+      <div class="md-step-bar-left"></div>
+      <div class="md-step-bar-right"></div>
+    </div>
+  </div>
+
+
+  <ion-card class="ion-no-margin">
+    <ion-card-header class="ion-padding">
+      {{config.language.BillingAddress}}
+    </ion-card-header>
+    <ion-card-content class="ion-padding">
+      {{config.language['2084 Forest Drive,Chantilly,Virginia,22021']}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="ion-no-margin">
+    <ion-card-header class="ion-padding">
+      {{config.language.ShippingAddress}}
+    </ion-card-header>
+    <ion-card-content class="ion-padding">
+      {{config.language['2084 Forest Drive,Chantilly,Virginia,22021']}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="ion-no-margin">
+    <ion-card-header class="ion-padding">
+      {{config.language.Products}}
+    </ion-card-header>
+    <ion-card-content *ngFor="let order of orderDetails"
+      class="ion-no-padding ion-padding-horizontal product-card-content">
+      <ion-row>
+        <ion-col size="12">
+          {{order.name}}
+        </ion-col>
+
+        <ion-col size="6">
+          {{config.language.Price}}
+        </ion-col>
+        <ion-col size="6" [class.ltrAlign]="config.direction == 'ltr'" [class.rtlAlign]="config.direction == 'rtl'">
+          {{order.price}}
+        </ion-col>
+
+        <ion-col size="6">
+          {{config.language.Quantity}}
+        </ion-col>
+        <ion-col size="6" [class.ltrAlign]="config.direction == 'ltr'" [class.rtlAlign]="config.direction == 'rtl'">
+          {{order.quantity}}
+        </ion-col>
+
+        <ion-col class="total-title" size="6">
+          {{config.language.Total}}
+        </ion-col>
+        <ion-col size="6" [class.ltrAlign]="config.direction == 'ltr'" [class.rtlAlign]="config.direction == 'rtl'"
+          class="total-title">
+          {{order.total}}
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="ion-margin">
+    <ion-card-header class="ion-padding">
+      <ion-row>
+        <ion-col size="6">
+          {{config.language.SubTotal}}
+        </ion-col>
+        <ion-col size="6" [class.ltrAlign]="config.direction == 'ltr'" [class.rtlAlign]="config.direction == 'rtl'">
+          $80.00
+        </ion-col>
+
+        <ion-col size="6">
+          {{config.language.ShippingMethod}}
+        </ion-col>
+        <ion-col size="6" [class.ltrAlign]="config.direction == 'ltr'" [class.rtlAlign]="config.direction == 'rtl'">
+          {{config.language.FreeShipping}}
+        </ion-col>
+
+        <ion-col size="6">
+          {{config.language.Totaltax}}
+        </ion-col>
+        <ion-col size="6" [class.ltrAlign]="config.direction == 'ltr'" [class.rtlAlign]="config.direction == 'rtl'">
+          0.00$
+        </ion-col>
+
+        <ion-col size="6">
+          {{config.language.Total}}
+        </ion-col>
+        <ion-col size="6" [class.ltrAlign]="config.direction == 'ltr'" [class.rtlAlign]="config.direction == 'rtl'">
+          160.00$
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card class="ion-no-margin">
+    <ion-card-header class="ion-padding">
+      {{config.language.PaymentMethod}}
+    </ion-card-header>
+    <ion-card-content class="ion-padding">
+      {{config.language.CashOnDelivery}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="ion-no-margin">
+    <ion-card-header class="ion-padding">
+      {{config.language.OrderNotes}}
+    </ion-card-header>
+    <ion-card-content class="ion-padding">
+      {{config.language.DontHaveAnAccount}}
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

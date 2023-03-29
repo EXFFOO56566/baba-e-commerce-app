@@ -1,0 +1,92 @@
+<ion-card class="ion-no-margin">
+  <ion-card-header class="ion-no-padding">
+    <ion-item lines="none">
+      <ion-label class="ion-no-margin ion-text-center">
+        {{config.language.Filters}}
+      </ion-label>
+    </ion-item>
+
+  </ion-card-header>
+  <ion-card-content>
+    <ion-label>
+      {{config.language.ProductsCategory}}
+    </ion-label>
+
+    <div class="div-size ion-margin-top">
+      <div style="width: 100%;" *ngFor="let size of productCategory" [class.my_class]="pCat == size"
+        class="ion-margin-end div-attr" (click)="selectProductCategory(size)">
+        <p style="margin-top: 3px; font-size: 12px;">
+          {{size}}
+        </p>
+      </div>
+    </div>
+
+    <ion-label>
+      {{config.language.ProductTags}}
+    </ion-label>
+
+    <div class="div-size ion-margin-top">
+      <div style="width: 15%;" *ngFor="let size of productTags" [class.my_class]="pTag == size"
+        class="ion-margin-end div-attr" (click)="selectTages(size)">
+        <p style="margin-top: 3px; font-size: 12px;">
+          {{size}}
+        </p>
+      </div>
+    </div>
+
+    <ion-range min="-200" max="200" color="primary">
+      <ion-label slot="start">$00</ion-label>
+      <ion-label slot="end">$1000</ion-label>
+    </ion-range>
+
+    <ion-label>
+      {{config.language.Attributes}}
+    </ion-label>
+    <ion-button class="ion-margin-top margin-color" [class.selected]="selectedColor==true" size="small" fill="outline"
+      (click)="changeBtn('color')">{{config.language.Colors}}
+    </ion-button>
+    <ion-button class="ion-margin-top" [class.selected]="selectedSize==true" size="small" fill="outline"
+      (click)="changeBtn('size')">{{config.language.Size}}
+    </ion-button>
+    <ion-button class="ion-margin-top" [class.selected]="selectedWeight==true" size="small" fill="outline"
+      (click)="changeBtn('weight')">{{config.language.Weight}}
+    </ion-button>
+
+    <ion-radio-group *ngIf="color" value="selected" class="ion-margin-top">
+      <ion-radio [class.radio-red]="colorRed==true" [class.radio]="colorRed==true" (ionFocus)='selectRadio("red")'
+        value="selected" slot="start">
+      </ion-radio>
+      <ion-radio [class.radio-green]="colorGreen==true" [class.radio]="colorGreen==true"
+        (ionFocus)='selectRadio("green")' value="selected" class="ion-margin-start" slot="start">
+      </ion-radio>
+      <ion-radio [class.radio-blue]="colorBlue==true" [class.radio]="colorBlue==true" (ionFocus)='selectRadio("blue")'
+        value="selected" class="ion-margin-start" slot="start">
+      </ion-radio>
+    </ion-radio-group>
+
+    <div class="div-size ion-margin-top" *ngIf="size">
+      <div *ngFor="let size of sizes" [class.my_class]="sizeL == size" class="ion-margin-end div-attr"
+        (click)="selectSizes(size)">
+        <p style="margin-top: 3px; font-size: 12px;">
+          {{size}}
+        </p>
+      </div>
+    </div>
+
+    <div class="div-size ion-margin-top" *ngIf="weight">
+      <div class="ion-margin-end div-attr" *ngFor="let w of weights" [class.my_class]="wightL == w"
+        (click)="selectWeight(w)">
+        <p style="margin-top: 3px; font-size: 12px;">
+          {{w}}
+        </p>
+      </div>
+    </div>
+
+    <ion-buttons>
+      <ion-button (click)="dismiss()" class="cart-btn">{{config.language.ClearFilter}}</ion-button>
+      <ion-button (click)="dismiss()" class="cart-btn">
+        {{config.language.Filter}}</ion-button>
+    </ion-buttons>
+
+  </ion-card-content>
+</ion-card>

@@ -1,0 +1,83 @@
+ion-header {
+    ion-toolbar {
+        --background: var(--ion-toolbar-item-background-color);
+        ion-menu-button {
+            ion-icon {
+                color: var(--ion-text-color);
+            }
+        }
+        ion-title {
+            font-weight: 600;
+        }
+
+        .ion-searchbar-ltr {
+            --icon-color: var(--ion-text-color);
+            --border-radius: 26px;
+            color: var(--ion-text-color);
+            ::ng-deep .searchbar-input {
+                padding-inline-start: 18px;
+                color: var(--ion-text-color);
+                padding-bottom: 2px;
+                padding-top: 2px;
+            }
+            ::ng-deep .searchbar-search-icon {
+                top: 8px;
+                right: 15px;
+                left: auto;
+            }
+        }
+
+        .ion-searchbar-rtl {
+            --icon-color: var(--ion-text-color);
+            --border-radius: 26px;
+            ::ng-deep .searchbar-input {
+                padding-inline-start: 18px;
+                color: var(--ion-text-color);
+                padding-bottom: 2px;
+                padding-top: 2px;
+            }
+            ::ng-deep .searchbar-search-icon {
+                top: 6px;
+            }
+        }
+    }
+}
+
+ion-content {
+    ion-segment {
+        ion-segment-button {
+            text-transform: capitalize;
+            font-weight: 600;
+        }
+    }
+
+    ion-card {
+        box-shadow: none;
+    }
+
+    .hot-cat-card {
+        --background: none !important;
+        box-shadow: none !important;
+        .hot-lbl {
+            color: var(--ion-text-color);
+            font-weight: 600;
+        }
+        .lbl-more {
+            color: var(--ion-color-primary) !important;
+            font-weight: 600;
+        }
+        ion-icon {
+            vertical-align: middle;
+            margin-bottom: 2px;
+        }
+    }
+
+    .may-like-card {
+        box-shadow: none;
+        background: none;
+        ion-label {
+            color: var(--ion-text-color);
+            font-weight: 600;
+        }
+    }
+}

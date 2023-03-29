@@ -1,0 +1,88 @@
+<ion-header class="ion-card-header">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-align-self-center" size="8" size-lg="8" size-sm="6" size-xs="8">
+        <ion-title>All Categories</ion-title>
+      </ion-col>
+      <ion-col size="4" size-lg="4" size-xs="4">
+        <ion-icon class="close-icon" name="close-outline" (click)="close()">
+        </ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="style-9">
+    <ion-row>
+      <ion-col class="min-heigth" size="3">
+        <!-- For Segments -->
+        <ion-segment (ionChange)="segmentChange($event)" [(ngModel)]="segments">
+          <ion-row>
+            <ion-col>
+              <ion-segment-button [class.checked-indicator]="config.language.Men == segments"
+                [value]="config.language.Men">
+                <ion-label>{{config.language.Men}}</ion-label>
+                <ion-icon name="body-outline"></ion-icon>
+              </ion-segment-button>
+            </ion-col>
+            <ion-col>
+              <ion-segment-button [class.checked-indicator]="config.language.headphones == segments"
+                [value]="config.language.headphones">
+                <ion-label>{{config.language.headphones}}</ion-label>
+                <ion-icon name="headset-outline"></ion-icon>
+              </ion-segment-button>
+            </ion-col>
+            <ion-col>
+              <ion-segment-button [class.checked-indicator]="config.language.Grocery == segments"
+                [value]="config.language.Grocery">
+                <ion-label>{{config.language.Grocery}}</ion-label>
+                <ion-icon name="cafe-outline"></ion-icon>
+              </ion-segment-button>
+            </ion-col>
+            <ion-col>
+              <ion-segment-button [class.checked-indicator]="config.language.Furniture == segments"
+                [value]="config.language.Furniture">
+                <ion-label>{{config.language.Furniture}}</ion-label>
+                <ion-icon name="shapes-outline"></ion-icon>
+              </ion-segment-button>
+            </ion-col>
+            <ion-col>
+              <ion-segment-button [class.checked-indicator]="config.language.Baby == segments"
+                [value]="config.language.Baby">
+                <ion-label>{{config.language.Baby}}</ion-label>
+                <ion-icon name="accessibility-outline"></ion-icon>
+              </ion-segment-button>
+            </ion-col>
+          </ion-row>
+        </ion-segment>
+      </ion-col>
+      <ion-col class="scroll-y" size="9">
+        <ion-card class="ion-no-margin ion-margin-vertical banner-card">
+          <ion-card-header class="ion-no-padding">
+            <ion-img src="./assets/shirts/Banner3.png"></ion-img>
+          </ion-card-header>
+        </ion-card>
+
+        <ion-label class="hot-lbl">
+          {{config.language.HotCategory}}
+        </ion-label>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col size="3" *ngFor="let p of hotCategory">
+              <ion-card class="ion-no-margin card">
+                <ion-card-header class="ion-no-padding">
+                  <img id="image" src="{{p.image}}">
+                </ion-card-header>
+                <ion-card-content class="ion-no-padding">
+                  <p class="ion-text-center ellipses">{{p.name}}</p>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

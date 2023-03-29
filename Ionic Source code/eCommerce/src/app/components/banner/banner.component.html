@@ -1,0 +1,15 @@
+<div class="banner-component" *ngIf="shared.banners.length!=0">
+  <div *ngIf="shared.banners[0]==1">
+    <ion-skeleton-text animated style="height: 211px;">
+    </ion-skeleton-text>
+  </div>
+  <div *ngIf="shared.banners[0]!=1">
+    <ion-slides [class.slideResize]=" config.homePage == 10"
+      [ngClass]="{'squareBullets': config.homePage == 3 || config.homePage == 4 || config.homePage == 9 || config.homePage == 10}"
+      pager="true">
+      <ion-slide *ngFor="let b of shared.banners" class="ion-no-padding animate-item">
+        <img [ngClass]="{'border': config.homePage == 6 || config.homePage == 7}" src="{{b.image}}">
+      </ion-slide>
+    </ion-slides>
+  </div>
+</div>

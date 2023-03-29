@@ -1,0 +1,29 @@
+ion-input {
+    font-size: 13px;
+    --padding-start: 0;
+    --background: var(--ion-toolbar-item-background-color);
+    border-radius: 12px;
+    ::ng-deep .native-input {
+        --padding-start: 10px !important;
+    }
+}
+
+ion-item {
+    ion-card {
+        --background: var(--ion-toolbar-item-background-color);
+        width: 100%;
+        height: 60%;
+        border-radius: 12px;
+        p {
+            font-weight: 600;
+            font-size: 13px;
+            margin: 0;
+        }
+        ion-icon {
+            vertical-align: middle;
+            zoom: 1.2;
+        }
+    }
+}
+
+

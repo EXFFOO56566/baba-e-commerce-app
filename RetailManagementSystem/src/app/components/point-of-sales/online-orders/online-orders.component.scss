@@ -1,0 +1,36 @@
+.online-order-card {
+    border-radius: 6px 6px 0 0;
+    ion-card-header {
+        padding: 7px 15px;
+        background: var(--ion-color-primary);
+        ion-card-title {
+            color: white;
+            font-weight: 500;
+            font-size: 14px;
+            text-align: center;
+        }
+    }
+    ion-card-content {
+        table {
+            table-layout: fixed;
+            cursor: pointer;
+            thead {
+                background: #efefef;
+                tr {
+                    th {
+                        padding: 0.6rem 0.3rem !important;
+                        border: 1px solid #dee2e6;
+                        font-size: 12px;
+                    }
+                }
+            }
+            tr {
+                td {
+                    border: 1px solid #dee2e6;
+                    padding: 0.6rem 0rem !important;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}

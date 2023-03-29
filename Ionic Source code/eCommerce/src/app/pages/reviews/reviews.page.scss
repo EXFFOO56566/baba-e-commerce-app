@@ -1,0 +1,52 @@
+.rating-gird {
+    h5 {
+        span {
+            font-size: 13px;
+            color: gray;
+            font-weight: 600;
+        }
+    }
+    h6 {
+        font-size: 14px;
+    }
+    ul {
+        padding-left: 10px;
+        margin-bottom: 0;
+        border-left: 1px solid #ccc;
+        li {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            list-style: none;
+            position: relative;
+            margin-bottom: 5px;
+            .icon {
+                margin-left: 5px;
+            }
+            span {
+                font-size: 12px;
+                margin-left: 5px;
+            }
+        }
+    }
+    .icon-gray {
+        color: darkgray;
+    }
+    ion-button {
+        text-transform: capitalize;
+        font-size: 13px;
+        height: 25px;
+    }
+}
+
+ion-item {
+    ion-icon {
+        zoom: 0.7;
+    }
+}
+
+p {
+    // .lbl-size{
+    font-size: 13px;
+    // }
+}

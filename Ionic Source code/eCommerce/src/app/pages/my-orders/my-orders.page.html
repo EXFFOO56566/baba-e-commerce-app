@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [icon]="config.direction == 'ltr'?'arrow-back': 'arrow-forward'"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{config.language.MyOrders}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-segment value="hold" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="hold">
+      <ion-label>{{config.language.OnHold}}</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="processing">
+      <ion-label>{{config.language.Processing}}</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="completed">
+      <ion-label>{{config.language.Completed}}</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-grid>
+    <ion-card *ngFor="let order of myOrders" (click)="showMyOrderDetail(order)">
+      <ion-card-content>
+        <ion-row>
+          <ion-col size="6">
+            {{config.language.Id}}
+          </ion-col>
+          <ion-col [class.ltrAlign]="config.direction == 'ltr'" [class.rtlAlign]="config.direction == 'rtl'"
+            class="col-bold" size="6">
+            {{order.id}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            {{config.language.OrderDate}}
+          </ion-col>
+          <ion-col [class.ltrAlign]="config.direction == 'ltr'" [class.rtlAlign]="config.direction == 'rtl'"
+            class="col-bold" size="6">
+            {{order.orderDate}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            {{config.language.Status}}
+          </ion-col>
+          <ion-col [class.ltrAlign]="config.direction == 'ltr'" [class.rtlAlign]="config.direction == 'rtl'"
+            class="col-bold" size="6">
+            {{order.status}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            {{config.language.PaymentMethod}}
+          </ion-col>
+          <ion-col [class.ltrAlign]="config.direction == 'ltr'" [class.rtlAlign]="config.direction == 'rtl'"
+            class="col-bold" size="6">
+            {{order.paymentMethod}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            {{config.language.Total}}
+          </ion-col>
+          <ion-col [class.ltrAlign]="config.direction == 'ltr'" [class.rtlAlign]="config.direction == 'rtl'"
+            class="col-bold" size="6">
+            {{order.total}}
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-grid>
+</ion-content>

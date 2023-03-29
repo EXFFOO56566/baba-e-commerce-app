@@ -1,0 +1,155 @@
+ion-card {
+    // For Top Selling Heading
+    .top-selling {
+        background: var(--ion-color-primary);
+        min-height: 85px;
+        color: white;
+        text-align: center;
+        padding-top: 24px;
+    }
+
+    // For Rank Counter Block
+    .rank-block {
+        background: var(--ion-background-color);
+        min-height: 69px;
+        color: var(--ion-top-rank-text-color);
+        font-weight: 600;
+        text-align: center;
+        padding-top: 15px;
+    }
+
+    // For Slides
+    ion-slides {
+        // For Scrollable Customization
+        ::ng-deep .swiper-scrollbar {
+            position: relative !important;
+            left: 0 !important;
+            bottom: 0px !important;
+            height: 2px !important;
+            width: 100% !important;
+            margin-left: 12px;
+            opacity: 1 !important;
+            .swiper-scrollbar-drag {
+                background: var(--ion-color-primary) !important;
+            }
+        }
+        // For Slide
+        ion-slide {
+            // For Scrollable Handling
+            border-bottom-style: solid !important;
+            border-bottom-color: transparent !important;
+            // For Card
+            ion-card {
+                box-shadow: none;
+                padding: 10px 15px;
+                display: flex;
+                background: var(--ion-toolbar-item-background-color);
+                width: 50%;
+                margin: 0 4px;
+                padding-right: 0px;
+                div {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    ion-thumbnail {
+                        margin-left: auto;
+                        margin-right: auto;
+                        background: white;
+                        height: 60px;
+                        width: 60px;
+                        margin: 0;
+                        border-radius: 12px;
+                        ion-icon {
+                            zoom: 1.4;
+                            margin-top: 12px;
+                            color: var(--ion-color-primary-contrast);
+                            margin-left: 12px;
+                        }
+                    }
+                    ion-label {
+                        font-size: 14px;
+                        font-weight: 600;
+                        color: var(--ion-text-color);
+                        margin-left: 10px;
+                        white-space: normal;
+                        p {
+                            color: var(--ion-top-rank-p-text-color);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// For Different Screen Resolution Styling Applies on Slides And Cards
+@media only screen and (max-width: 1199.5px) {
+    ion-slides {
+        ion-card {
+            padding: 13.5px 15px !important;
+        }
+    }
+
+    .top-selling {
+        min-height: 52px !important;
+        align-items: center !important;
+        padding-top: 19px !important;
+    }
+
+    .rank-block {
+        min-height: 47px !important;
+        font-weight: 500 !important;
+        padding-top: 8px !important;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    ion-slides {
+        .swiper-slide {
+            flex-wrap: wrap;
+        }
+
+        ion-card {
+            width: 100% !important;
+            margin: 3.5px !important;
+        }
+    }
+
+    .top-selling {
+        min-height: 48px !important;
+        align-items: center !important;
+        padding-top: 16px !important;
+    }
+
+    .rank-block {
+        min-height: 38px !important;
+        font-weight: 500 !important;
+        padding-top: 12px !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    ion-slides {
+        .swiper-slide {
+            flex-wrap: wrap;
+        }
+
+        ion-card {
+            width: 100% !important;
+            margin: 5px !important;
+            padding: 12px 15px !important;
+        }
+    }
+
+    .top-selling {
+        min-height: 48px !important;
+        align-items: center !important;
+        padding-top: 16px !important;
+    }
+
+    .rank-block {
+        min-height: 38px !important;
+        font-weight: 500 !important;
+        padding-top: 12px !important;
+    }
+}

@@ -1,0 +1,88 @@
+.roundImage {
+    ion-slides {
+        .swiper-slide {
+            width: 40%;
+        }
+        ion-slide {
+            ion-card {
+                box-shadow: none;
+                ion-avatar {
+                    margin-left: auto;
+                    margin-right: auto;
+                    background: var(--ion-color-primary);
+                    height: 40px;
+                    width: 40px;
+                    ion-icon {
+                        zoom: 1.6;
+                        margin-top: 6px;
+                        color: var(--ion-color-primary-contrast);
+                    }
+                }
+                ion-label {
+                    font-size: var(--sub-heading-font-size);
+                    color: var(--ion-text-color);
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
+
+.roundImageBorder {
+    margin-top: 10px;
+    ion-slides {
+        .swiper-slide {
+            width: 40%;
+        }
+        ion-slide {
+            ion-card {
+                box-shadow: none;
+                ion-avatar {
+                    height: 51px;
+                    width: 51px;
+                    border: 1px solid;
+                    ion-icon {
+                        zoom: 1.3;
+                        margin-top: 5px;
+                        margin-bottom: 2px;
+                        color: var(--ion-text-color);
+                    }
+                }
+                ion-label {
+                    font-size: var(--sub-heading-font-size);
+                    color: var(--ion-text-color);
+                    /* font-weight: 600; */
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    padding: -11px;
+                    /* text-align: center; */
+                    /* margin: 1px; */
+                    margin-left: 10px;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}
+
+.simple {
+    ion-card {
+        box-shadow: none;
+        ion-icon {
+            zoom: 1.6;
+            margin-top: 6px;
+            color: var(--ion-text-color);
+        }
+
+        ion-label {
+            font-size: var(--sub-heading-font-size);
+            color: var(--ion-text-color);
+            font-weight: 600;
+        }
+    }
+}
+
+.add {
+    color: var(--ion-color-primary) !important;
+}

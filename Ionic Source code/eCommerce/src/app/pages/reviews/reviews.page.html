@@ -1,0 +1,150 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [icon]="config.direction == 'ltr'?'arrow-back': 'arrow-forward'"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{config.language.Reviews}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="rating-gird">
+    <ion-row class="ion-align-items-center ion-text-center">
+      <ion-col size="6">
+        <h5>4.8 <span>/ 5</span>
+        </h5>
+        <ion-icon color="primary" *ngFor="let i of [1,2,3]" name="star"></ion-icon>
+        <ion-icon class="icon-gray" *ngFor="let i of [1,2]" name="star"></ion-icon>
+        <h6 class="icon-gray ion-margin-top">13197 {{config.language.rating}}</h6>
+      </ion-col>
+      <ion-col size="6">
+        <ul>
+          <li>
+            <ion-icon color="primary" *ngFor="let i of [1,2,3,4,5]" name="star"></ion-icon>
+            <span>123k</span>
+          </li>
+          <li>
+            <ion-icon color="primary" *ngFor="let i of [1,2,3,4]" name="star"></ion-icon>
+            <ion-icon class="icon-gray" name="star"></ion-icon>
+            <span>243k</span>
+          </li>
+          <li>
+            <ion-icon color="primary" *ngFor="let i of [1,2,3]" name="star"></ion-icon>
+            <ion-icon class="icon-gray" *ngFor="let i of [1,2]" name="star"></ion-icon>
+            <span>5643k</span>
+          </li>
+          <li>
+            <ion-icon color="primary" *ngFor="let i of [1,2]" name="star"></ion-icon>
+            <ion-icon class="icon-gray" *ngFor="let i of [1,2,3]" name="star"></ion-icon>
+            <span>2k</span>
+          </li>
+          <li>
+            <ion-icon color="primary" name="star"></ion-icon>
+            <ion-icon class="icon-gray" *ngFor="let i of [1,2,3,4]" name="star"></ion-icon>
+            <span>456k</span>
+          </li>
+        </ul>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-button color="primary" (click)="giveReview()">{{config.language.GiveReview}}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-item lines="none">
+    <ion-avatar class="ion-no-margin" slot="start">
+      <img src="assets/maleAvatar.png">
+    </ion-avatar>
+    <ion-label class="ion-no-margin ion-margin-start">
+      elibenaderat
+      <p>
+        2021-03-15 15:45:35
+      </p>
+    </ion-label>
+    <ion-icon color="primary" name="star"></ion-icon>
+    <ion-icon name="star"></ion-icon>
+    <ion-icon name="star"></ion-icon>
+    <ion-icon name="star"></ion-icon>
+    <ion-icon name="star"></ion-icon>
+  </ion-item>
+  <p class="ion-margin-start ion-padding-start ion-padding-top ion-margin-top lbl-size">
+    {{config.language.ShipmentveryfastGreatproductThankyou}}</p>
+
+  <ion-item lines="none">
+    <ion-avatar class="ion-no-margin" slot="start">
+      <img src="assets/maleAvatar.png">
+    </ion-avatar>
+    <ion-label class="ion-no-margin ion-margin-start">
+      elibenaderat
+      <p>
+        2021-03-15 15:45:35
+      </p>
+    </ion-label>
+    <ion-icon color="primary" name="star"></ion-icon>
+    <ion-icon color="primary" name="star"></ion-icon>
+    <ion-icon color="primary" name="star"></ion-icon>
+    <ion-icon name="star"></ion-icon>
+    <ion-icon name="star"></ion-icon>
+  </ion-item>
+  <p class="ion-margin-start ion-padding-start ion-padding-top ion-margin-top lbl-size">{{config.language.GlobalText}}
+  </p>
+
+  <ion-item lines="none">
+    <ion-avatar class="ion-no-margin" slot="start">
+      <img src="assets/maleAvatar.png">
+    </ion-avatar>
+    <ion-label class="ion-no-margin ion-margin-start">
+      elibenaderat
+      <p>
+        2021-03-15 15:45:35
+      </p>
+    </ion-label>
+    <ion-icon color="primary" name="star"></ion-icon>
+    <ion-icon name="star"></ion-icon>
+    <ion-icon name="star"></ion-icon>
+    <ion-icon name="star"></ion-icon>
+    <ion-icon name="star"></ion-icon>
+  </ion-item>
+  <p class="ion-margin-start ion-padding-start ion-padding-top ion-margin-top lbl-size">{{config.language.GlobalText}}
+  </p>
+  <ion-item lines="none">
+    <ion-avatar class="ion-no-margin" slot="start">
+      <img src="assets/maleAvatar.png">
+    </ion-avatar>
+    <ion-label class="ion-no-margin ion-margin-start">
+      elibenaderat
+      <p>
+        2021-03-15 15:45:35
+      </p>
+    </ion-label>
+    <ion-icon color="primary" name="star"></ion-icon>
+    <ion-icon color="primary" name="star"></ion-icon>
+    <ion-icon color="primary" name="star"></ion-icon>
+    <ion-icon name="star"></ion-icon>
+    <ion-icon name="star"></ion-icon>
+  </ion-item>
+  <p class="ion-margin-start ion-padding-start ion-padding-top ion-margin-top lbl-size">{{config.language.GlobalText}}
+  </p>
+  <ion-item lines="none">
+    <ion-avatar class="ion-no-margin" slot="start">
+      <img src="assets/maleAvatar.png">
+    </ion-avatar>
+    <ion-label class="ion-no-margin ion-margin-start">
+      elibenaderat
+      <p>
+        2021-03-15 15:45:35
+      </p>
+    </ion-label>
+    <ion-icon color="primary" name="star"></ion-icon>
+    <ion-icon name="star"></ion-icon>
+    <ion-icon name="star"></ion-icon>
+    <ion-icon name="star"></ion-icon>
+    <ion-icon name="star"></ion-icon>
+  </ion-item>
+  <p class="ion-margin-start ion-padding-start ion-padding-top ion-margin-top lbl-size">{{config.language.GlobalText2}}
+  </p>
+
+</ion-content>

@@ -1,0 +1,91 @@
+<form [formGroup]="form">
+  <ion-row formGroupName="customerInfo">
+    <ion-col size="12" class="ion-float-left ion-align-self-end">
+      <ion-label class="ion-no-padding">Name:</ion-label>
+    </ion-col>
+    <ion-col class="ion-no-padding" size="12">
+      <ion-input placeholder="Enter Customer Name" formControlName="CustomerName" type="text">
+      </ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row formGroupName="customerInfo">
+    <ion-col size="12" style="padding-right: 0;" class="ion-float-left ion-align-self-end">
+      <ion-label class="ion-no-padding">Cell No.:</ion-label>
+    </ion-col>
+    <ion-col class="ion-no-padding" size="12">
+      <ion-input #custNo placeholder="Search Customer (Cell No.)"
+        formControlName="CustomerPhoneNo" class="form-control inputHeight" type="text">
+      </ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row formGroupName="customerInfo">
+    <ion-col size="12" class="ion-float-left ion-align-self-end">
+      <ion-label class="ion-no-padding">Address:</ion-label>
+    </ion-col>
+    <ion-col class="ion-no-padding" size="12">
+      <ion-textarea placeholder="Enter Customer Address" formControlName="CustomerAddress">
+      </ion-textarea>
+    </ion-col>
+  </ion-row>
+
+  <ion-row tabindex="-1" class="ion-no-padding ion-margin-top">
+    <ion-col class="ion-no-padding" size='6.8'>
+      <label class="lblstxt">Quantity:</label>
+    </ion-col>
+    <ion-col class="ion-no-padding ion-text-right" size='5.2'>
+      <label class="ion-no-padding" readonly="true" type="text">
+        {{form.get('numberOfItems').value | number:'1.2-2' }}
+      </label>
+    </ion-col>
+  </ion-row>
+  <ion-row tabindex="-1" class="ion-no-padding">
+    <ion-col class="ion-no-padding" size='6.8'>
+      <label class="lblstxt">Amount:</label>
+    </ion-col>
+    <ion-col class="ion-no-padding ion-text-right" size='5.2'>
+      <label class="ion-no-padding" readonly="true" type="text">
+        {{form.get('amount').value | number:'1.2-2'}}
+      </label>
+    </ion-col>
+  </ion-row>
+  <ion-row tabindex="-1" class="ion-no-padding">
+    <ion-col class="ion-no-padding" size='6.8'>
+      <label class="lblstxt">Sales Tax:</label>
+    </ion-col>
+    <ion-col class="ion-no-padding ion-text-right" size='5.2'>
+      <label class="ion-no-padding" readonly="true" type="text">
+        {{form.get('saleTax').value | number:'1.2-2'}}
+      </label>
+    </ion-col>
+  </ion-row>
+  <ion-row tabindex="-1" class="ion-no-padding">
+    <ion-col class="ion-no-padding" size='6.8'>
+      <label class="lblstxt">Gross Amount:</label>
+    </ion-col>
+    <ion-col class="ion-no-padding ion-text-right" size='5.2'>
+      <label class="ion-no-padding" readonly="true" type="text">
+        {{form.get('priceBeforeDiscount').value | number:'1.2-2'}}
+      </label>
+    </ion-col>
+  </ion-row>
+  <ion-row tabindex="-1" class="ion-no-padding">
+    <ion-col class="ion-no-padding" size='6.8'>
+      <label class="lblstxt">Discount:</label>
+    </ion-col>
+    <ion-col class="ion-no-padding ion-text-right" size='5.2'>
+      <label class="ion-no-padding" readonly="true" type="text">
+        {{form.get('discount').value | number:'1.2-2'}}
+      </label>
+    </ion-col>
+  </ion-row>
+  <ion-row tabindex="-1" class="ion-no-padding">
+    <ion-col class="ion-no-padding" size='6.8'>
+      <label class="lblstxt">Grand Total:</label>
+    </ion-col>
+    <ion-col class="ion-no-padding ion-text-right" size='5.2'>
+      <label class="ion-no-padding" readonly="true" type="text">
+        {{form.get('invoiceTotal').value | number:'1.2-2'}}
+      </label>
+    </ion-col>
+  </ion-row>
+</form>
